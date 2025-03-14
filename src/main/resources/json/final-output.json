@@ -1,0 +1,2175 @@
+{
+    "dlc": [
+        {
+            "dlc_id": 0,
+            "name": "COMMON",
+            "description": "",
+            "release_date": "",
+            "killer": [
+                {
+                    "killer_id": 0,
+                    "name": "Common",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": -4,
+                            "name": "Fourth Empty Slot"
+                        },
+                        {
+                            "perk_id": -3,
+                            "name": "Third Empty Slot"
+                        },
+                        {
+                            "perk_id": -2,
+                            "name": "Second Empty Slot"
+                        },
+                        {
+                            "perk_id": -1,
+                            "name": "First Empty Slot"
+                        },
+                        {
+                            "perk_id": 15,
+                            "name": "Bitter Murmur"
+                        },
+                        {
+                            "perk_id": 16,
+                            "name": "Deerstalker"
+                        },
+                        {
+                            "perk_id": 17,
+                            "name": "Distressing"
+                        },
+                        {
+                            "perk_id": 18,
+                            "name": "Hex: No One Escapes Death"
+                        },
+                        {
+                            "perk_id": 19,
+                            "name": "Insidious"
+                        },
+                        {
+                            "perk_id": 20,
+                            "name": "Iron Grasp"
+                        },
+                        {
+                            "perk_id": 21,
+                            "name": "Scourge Hook: Monstrous Shrine"
+                        },
+                        {
+                            "perk_id": 22,
+                            "name": "Sloppy Butcher"
+                        },
+                        {
+                            "perk_id": 23,
+                            "name": "Spies from the Shadows"
+                        },
+                        {
+                            "perk_id": 24,
+                            "name": "Unrelenting"
+                        },
+                        {
+                            "perk_id": 25,
+                            "name": "Whispers"
+                        },
+                        {
+                            "perk_id": 26,
+                            "name": "Hex: Thrill of the Hunt"
+                        },
+                        {
+                            "perk_id": 204,
+                            "name": "Shattered Hope"
+                        }
+                    ],
+                    "addon": []
+                },
+                {
+                    "killer_id": 1,
+                    "name": "The Trapper",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 39,
+                            "name": "Agitation"
+                        },
+                        {
+                            "perk_id": 40,
+                            "name": "Brutal Strength"
+                        },
+                        {
+                            "perk_id": 41,
+                            "name": "Unnerving Presence"
+                        }
+                    ],
+                    "addon": []
+                },
+                {
+                    "killer_id": 2,
+                    "name": "The Wraith",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 42,
+                            "name": "Bloodhound"
+                        },
+                        {
+                            "perk_id": 43,
+                            "name": "Predator"
+                        },
+                        {
+                            "perk_id": 44,
+                            "name": "Shadowborn"
+                        }
+                    ],
+                    "addon": []
+                },
+                {
+                    "killer_id": 3,
+                    "name": "The Hillbilly",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 45,
+                            "name": "Enduring"
+                        },
+                        {
+                            "perk_id": 46,
+                            "name": "Lightborn"
+                        },
+                        {
+                            "perk_id": 47,
+                            "name": "Tinkerer"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 0,
+                    "name": "Common",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": -4,
+                            "name": "Fourth Empty Slot"
+                        },
+                        {
+                            "perk_id": -3,
+                            "name": "Third Empty Slot"
+                        },
+                        {
+                            "perk_id": -2,
+                            "name": "Second Empty Slot"
+                        },
+                        {
+                            "perk_id": -1,
+                            "name": "First Empty Slot"
+                        },
+                        {
+                            "perk_id": 1,
+                            "name": "Dark Sense"
+                        },
+                        {
+                            "perk_id": 2,
+                            "name": "Deja Vu"
+                        },
+                        {
+                            "perk_id": 3,
+                            "name": "Hope"
+                        },
+                        {
+                            "perk_id": 4,
+                            "name": "Lightweight"
+                        },
+                        {
+                            "perk_id": 5,
+                            "name": "No One Left Behind"
+                        },
+                        {
+                            "perk_id": 6,
+                            "name": "Plunderer's Instinct"
+                        },
+                        {
+                            "perk_id": 7,
+                            "name": "Premonition"
+                        },
+                        {
+                            "perk_id": 8,
+                            "name": "Resilience"
+                        },
+                        {
+                            "perk_id": 9,
+                            "name": "Slippery Meat"
+                        },
+                        {
+                            "perk_id": 10,
+                            "name": "Small Game"
+                        },
+                        {
+                            "perk_id": 11,
+                            "name": "Spine Chill"
+                        },
+                        {
+                            "perk_id": 12,
+                            "name": "This Is Not Happening"
+                        },
+                        {
+                            "perk_id": 13,
+                            "name": "We'll Make It"
+                        },
+                        {
+                            "perk_id": 14,
+                            "name": "Kindred"
+                        }
+                    ]
+                },
+                {
+                    "survivor_id": 1,
+                    "name": "Dwight Fairfield",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 27,
+                            "name": "Bond"
+                        },
+                        {
+                            "perk_id": 28,
+                            "name": "Leader"
+                        },
+                        {
+                            "perk_id": 29,
+                            "name": "Prove Thyself"
+                        }
+                    ]
+                },
+                {
+                    "survivor_id": 2,
+                    "name": "Meg Thomas",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 30,
+                            "name": "Adrenaline"
+                        },
+                        {
+                            "perk_id": 31,
+                            "name": "Quick & Quiet"
+                        },
+                        {
+                            "perk_id": 32,
+                            "name": "Sprint Burst"
+                        }
+                    ]
+                },
+                {
+                    "survivor_id": 3,
+                    "name": "Claudette Morel",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 33,
+                            "name": "Botany Knowledge"
+                        },
+                        {
+                            "perk_id": 34,
+                            "name": "Empathy"
+                        },
+                        {
+                            "perk_id": 35,
+                            "name": "Self-Care"
+                        }
+                    ]
+                },
+                {
+                    "survivor_id": 4,
+                    "name": "Jake Park",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 36,
+                            "name": "Calm Spirit"
+                        },
+                        {
+                            "perk_id": 37,
+                            "name": "Iron Will"
+                        },
+                        {
+                            "perk_id": 38,
+                            "name": "Saboteur"
+                        }
+                    ]
+                },
+                {
+                    "survivor_id": 5,
+                    "name": "William \"Bill\" Overbeck",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 51,
+                            "name": "Balanced Landing"
+                        },
+                        {
+                            "perk_id": 52,
+                            "name": "Streetwise"
+                        },
+                        {
+                            "perk_id": 53,
+                            "name": "Urban Evasion"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 1,
+            "name": "THE LAST BREATH",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Nurse\nNew Survivor: Nea Karlsson\nNew Map (Free): Crotus Prenn Asylum\nAn exclusive item for Nea",
+            "release_date": "2016-08-18",
+            "killer": [
+                {
+                    "killer_id": 4,
+                    "name": "The Nurse",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 48,
+                            "name": "A Nurse's Calling"
+                        },
+                        {
+                            "perk_id": 49,
+                            "name": "Stridor"
+                        },
+                        {
+                            "perk_id": 50,
+                            "name": "Thanatophobia"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 6,
+                    "name": "Nea Karlsson",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 57,
+                            "name": "Decisive Strike"
+                        },
+                        {
+                            "perk_id": 58,
+                            "name": "Object of Obsession"
+                        },
+                        {
+                            "perk_id": 59,
+                            "name": "Sole Survivor"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 2,
+            "name": "HALLOWEEN",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Shape\nNew Survivor: Laurie Strode\nNew Map (Free): Haddonfield – Lampkin Lane\nAn exclusive item for Laurie",
+            "release_date": "2016-10-25",
+            "killer": [
+                {
+                    "killer_id": 6,
+                    "name": "The Shape – Michael Myers",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 54,
+                            "name": "Dying Light"
+                        },
+                        {
+                            "perk_id": 55,
+                            "name": "Play With Your Food"
+                        },
+                        {
+                            "perk_id": 56,
+                            "name": "Save the Best for Last"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 8,
+                    "name": "Laurie Strode",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 66,
+                            "name": "Borrowed Time"
+                        },
+                        {
+                            "perk_id": 67,
+                            "name": "Left Behind"
+                        },
+                        {
+                            "perk_id": 68,
+                            "name": "Unbreakable"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 3,
+            "name": "OF FLESH AND MUD",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Hag\nNew Survivor: Ace Visconti\nNew Map (Free): Backwater Swamp\nAn exclusive item for Ace",
+            "release_date": "2016-12-08",
+            "killer": [
+                {
+                    "killer_id": 7,
+                    "name": "The Hag",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 60,
+                            "name": "Hex: Devour Hope"
+                        },
+                        {
+                            "perk_id": 61,
+                            "name": "Hex: Ruin"
+                        },
+                        {
+                            "perk_id": 62,
+                            "name": "Hex: The Third Seal"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 9,
+                    "name": "Ace Visconti",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 72,
+                            "name": "Alert"
+                        },
+                        {
+                            "perk_id": 73,
+                            "name": "Lithe"
+                        },
+                        {
+                            "perk_id": 74,
+                            "name": "Technician"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 4,
+            "name": "SPARK OF MADNESS",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Doctor\nNew Survivor: Feng Min\nNew Map (Free): Léry’s Memorial Institute\nAn exclusive item for Feng",
+            "release_date": "2017-05-11",
+            "killer": [
+                {
+                    "killer_id": 8,
+                    "name": "The Doctor",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 69,
+                            "name": "Overcharge"
+                        },
+                        {
+                            "perk_id": 70,
+                            "name": "Monitor & Abuse"
+                        },
+                        {
+                            "perk_id": 71,
+                            "name": "Overwhelming Presence"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 10,
+                    "name": "Feng Min",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 78,
+                            "name": "Dead Hard"
+                        },
+                        {
+                            "perk_id": 79,
+                            "name": "No Mither"
+                        },
+                        {
+                            "perk_id": 80,
+                            "name": "We're Gonna Live Forever"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 5,
+            "name": "A LULLABY FOR THE DARK",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Huntress\nNew Survivor: David King\nNew Map (Free): Red Forest\nAn exclusive item for David",
+            "release_date": "2017-07-27",
+            "killer": [
+                {
+                    "killer_id": 5,
+                    "name": "The Huntress",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 75,
+                            "name": "Beast of Prey"
+                        },
+                        {
+                            "perk_id": 76,
+                            "name": "Hex: Huntress Lullaby"
+                        },
+                        {
+                            "perk_id": 77,
+                            "name": "Territorial Imperative"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 7,
+                    "name": "David King",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 63,
+                            "name": "Ace in the Hole"
+                        },
+                        {
+                            "perk_id": 64,
+                            "name": "Open-Handed"
+                        },
+                        {
+                            "perk_id": 65,
+                            "name": "Up the Ante"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 6,
+            "name": "LEATHERFACE",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Cannibal",
+            "release_date": "2017-09-14",
+            "killer": [
+                {
+                    "killer_id": 9,
+                    "name": "The Cannibal – Leatherface",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 81,
+                            "name": "Barbecue & Chili"
+                        },
+                        {
+                            "perk_id": 82,
+                            "name": "Franklin's Demise"
+                        },
+                        {
+                            "perk_id": 83,
+                            "name": "Knock Out"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": []
+        },
+        {
+            "dlc_id": 7,
+            "name": "A NIGHTMARE ON ELM STREET",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Nightmare\nNew Survivor: Quentin Smith\nNew Map (Free): Springwood – Badham Preschool\nAn exclusive item for Quentin",
+            "release_date": "2017-10-26",
+            "killer": [
+                {
+                    "killer_id": 10,
+                    "name": "The Nightmare – Freddy Krueger",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 84,
+                            "name": "Blood Warden"
+                        },
+                        {
+                            "perk_id": 85,
+                            "name": "Fire Up"
+                        },
+                        {
+                            "perk_id": 86,
+                            "name": "Remember Me"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 11,
+                    "name": "Quentin Smith",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 87,
+                            "name": "Pharmacy"
+                        },
+                        {
+                            "perk_id": 88,
+                            "name": "Vigil"
+                        },
+                        {
+                            "perk_id": 89,
+                            "name": "Wake Up!"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 8,
+            "name": "SAW",
+            "description": "This Chapter DLC includes:\nNew Killer: The Pig\nNew Survivor: Detective Tapp\nNew Map (Free): Gideon Meat Plant – The Game\nAn exclusive item for Detective Tapp",
+            "release_date": "2018-01-23",
+            "killer": [
+                {
+                    "killer_id": 11,
+                    "name": "The Pig – Amanda Young",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 90,
+                            "name": "Scourge Hook: Hangman's Trick"
+                        },
+                        {
+                            "perk_id": 91,
+                            "name": "Make Your Choice"
+                        },
+                        {
+                            "perk_id": 92,
+                            "name": "Surveillance"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 12,
+                    "name": "Detective David Tapp",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 93,
+                            "name": "Detective's Hunch"
+                        },
+                        {
+                            "perk_id": 94,
+                            "name": "Stake Out"
+                        },
+                        {
+                            "perk_id": 95,
+                            "name": "Tenacity"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 9,
+            "name": "CURTAIN CALL",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Clown\nNew Survivor: Kate Denson\nNew Map (Free): Crotus Prenn Asylum – Father Campbell's Chapel\nAn exclusive item for Kate",
+            "release_date": "2018-06-12",
+            "killer": [
+                {
+                    "killer_id": 12,
+                    "name": "The Clown",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 96,
+                            "name": "Bamboozle"
+                        },
+                        {
+                            "perk_id": 97,
+                            "name": "Coulrophobia"
+                        },
+                        {
+                            "perk_id": 98,
+                            "name": "Pop Goes the Weasel"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 13,
+                    "name": "Kate Denson",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 99,
+                            "name": "Boil Over"
+                        },
+                        {
+                            "perk_id": 100,
+                            "name": "Dance With Me"
+                        },
+                        {
+                            "perk_id": 101,
+                            "name": "Windows of Opportunity"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 10,
+            "name": "SHATTERED BLOODLINE",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Spirit\nNew Survivor: Adam Francis\nNew Map (Free): Yamaoka Estate – Family Residence\nAn exclusive item for Adam",
+            "release_date": "2018-09-18",
+            "killer": [
+                {
+                    "killer_id": 13,
+                    "name": "The Spirit",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 102,
+                            "name": "Hex: Haunted Ground"
+                        },
+                        {
+                            "perk_id": 103,
+                            "name": "Rancor"
+                        },
+                        {
+                            "perk_id": 104,
+                            "name": "Spirit Fury"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 14,
+                    "name": "Adam Francis",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 105,
+                            "name": "Autodidact"
+                        },
+                        {
+                            "perk_id": 106,
+                            "name": "Deliverance"
+                        },
+                        {
+                            "perk_id": 107,
+                            "name": "Diversion"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 11,
+            "name": "DARKNESS AMONG US",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Legion\nNew Survivor: Jeff Johansen\nNew Map (Free): Ormond – Mount Ormond Resort\nAn exclusive item for Jeff",
+            "release_date": "2018-12-11",
+            "killer": [
+                {
+                    "killer_id": 14,
+                    "name": "The Legion",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 108,
+                            "name": "Discordance"
+                        },
+                        {
+                            "perk_id": 109,
+                            "name": "Iron Maiden"
+                        },
+                        {
+                            "perk_id": 110,
+                            "name": "Mad Grit"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 15,
+                    "name": "Jeffrey \"Jeff\" Johansen",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 111,
+                            "name": "Aftercare"
+                        },
+                        {
+                            "perk_id": 112,
+                            "name": "Breakdown"
+                        },
+                        {
+                            "perk_id": 113,
+                            "name": "Distortion"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 12,
+            "name": "DEMISE OF THE FAITHFUL",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Plague\nNew Survivor: Jane Romero\nNew Map (Free): Red Forest – The Temple of Purgation\nAn exclusive item for Jane",
+            "release_date": "2019-03-19",
+            "killer": [
+                {
+                    "killer_id": 15,
+                    "name": "The Plague",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 114,
+                            "name": "Corrupt Intervention"
+                        },
+                        {
+                            "perk_id": 115,
+                            "name": "Dark Devotion"
+                        },
+                        {
+                            "perk_id": 116,
+                            "name": "Infectious Fright"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 16,
+                    "name": "Jane Romero",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 117,
+                            "name": "Head On"
+                        },
+                        {
+                            "perk_id": 118,
+                            "name": "Poised"
+                        },
+                        {
+                            "perk_id": 119,
+                            "name": "Solidarity"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 13,
+            "name": "ASH VS. EVIL DEAD",
+            "description": "This Chapter DLC includes:\n\nNew Survivor: Ashley J. Williams\nAn exclusive item for Ash",
+            "release_date": "2019-04-02",
+            "killer": [],
+            "survivor": [
+                {
+                    "survivor_id": 17,
+                    "name": "Ashley J. Williams",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 120,
+                            "name": "Buckle Up"
+                        },
+                        {
+                            "perk_id": 121,
+                            "name": "Flip-Flop"
+                        },
+                        {
+                            "perk_id": 122,
+                            "name": "Mettle of Man"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 14,
+            "name": "GHOST FACE",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Ghost Face\nAn exclusive item for The Ghost Face",
+            "release_date": "2019-06-18",
+            "killer": [
+                {
+                    "killer_id": 16,
+                    "name": "The Ghost Face",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 123,
+                            "name": "Furtive Chase"
+                        },
+                        {
+                            "perk_id": 124,
+                            "name": "I'm All Ears"
+                        },
+                        {
+                            "perk_id": 125,
+                            "name": "Thrilling Tremors"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": []
+        },
+        {
+            "dlc_id": 15,
+            "name": "STRANGER THINGS",
+            "description": "Dead by Daylight: Stranger Things includes :\nNew Killer: The Demogorgon\nNew Survivors: Nancy Wheeler and Steve Harrington\nThe Underground Complex Map is available for all players.",
+            "release_date": "2019-09-17",
+            "killer": [
+                {
+                    "killer_id": 17,
+                    "name": "The Demogorgon",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 126,
+                            "name": "Cruel Limits"
+                        },
+                        {
+                            "perk_id": 127,
+                            "name": "Mindbreaker"
+                        },
+                        {
+                            "perk_id": 128,
+                            "name": "Surge"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 18,
+                    "name": "Nancy Wheeler",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 129,
+                            "name": "Better Together"
+                        },
+                        {
+                            "perk_id": 130,
+                            "name": "Fixated"
+                        },
+                        {
+                            "perk_id": 131,
+                            "name": "Inner Strength"
+                        }
+                    ]
+                },
+                {
+                    "survivor_id": 19,
+                    "name": "Steve Harrington",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 132,
+                            "name": "Babysitter"
+                        },
+                        {
+                            "perk_id": 133,
+                            "name": "Camaraderie"
+                        },
+                        {
+                            "perk_id": 134,
+                            "name": "Second Wind"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 16,
+            "name": "CURSED LEGACY",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Oni\nNew Survivor: Yui Kimura\nNew Map (Free): Yamaoka Estate – Sanctum of Wrath\nAn exclusive item for Yui",
+            "release_date": "2019-12-03",
+            "killer": [
+                {
+                    "killer_id": 18,
+                    "name": "The Oni",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 135,
+                            "name": "Blood Echo"
+                        },
+                        {
+                            "perk_id": 136,
+                            "name": "Nemesis"
+                        },
+                        {
+                            "perk_id": 137,
+                            "name": "Zanshin Tactics"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 20,
+                    "name": "Yui Kimura",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 138,
+                            "name": "Any Means Necessary"
+                        },
+                        {
+                            "perk_id": 139,
+                            "name": "Breakout"
+                        },
+                        {
+                            "perk_id": 140,
+                            "name": "Lucky Break"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 17,
+            "name": "CHAINS OF HATE",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Deathslinger\nNew Survivor: Zarina Kassir\nNew Map (Free): Grave of Glenvale – Dead Dawg Saloon\nAn exclusive item for Zarina",
+            "release_date": "2020-03-10",
+            "killer": [
+                {
+                    "killer_id": 19,
+                    "name": "The Deathslinger",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 141,
+                            "name": "Dead Man’s Switch"
+                        },
+                        {
+                            "perk_id": 142,
+                            "name": "Gearhead"
+                        },
+                        {
+                            "perk_id": 143,
+                            "name": "Hex: Retribution"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 21,
+                    "name": "Zarina Kassir",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 144,
+                            "name": "For the People"
+                        },
+                        {
+                            "perk_id": 145,
+                            "name": "Off the Record"
+                        },
+                        {
+                            "perk_id": 146,
+                            "name": "Red Herring"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 18,
+            "name": "SILENT HILL",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Executioner\nNew Survivor: Cheryl Mason\nNew Map (Free): Midwich Elementary School\nAn exclusive universal charm",
+            "release_date": "2020-06-16",
+            "killer": [
+                {
+                    "killer_id": 20,
+                    "name": "The Executioner – Pyramid Head",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 147,
+                            "name": "Deathbound"
+                        },
+                        {
+                            "perk_id": 148,
+                            "name": "Forced Penance"
+                        },
+                        {
+                            "perk_id": 149,
+                            "name": "Trail of Torment"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 22,
+                    "name": "Cheryl Mason",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 150,
+                            "name": "Blood Pact"
+                        },
+                        {
+                            "perk_id": 151,
+                            "name": "Repressed Alliance"
+                        },
+                        {
+                            "perk_id": 152,
+                            "name": "Soul Guard"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 19,
+            "name": "DESCEND BEYOND",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Blight\nNew Survivor: Felix Richter\nAn exclusive item for Felix",
+            "release_date": "2020-09-08",
+            "killer": [
+                {
+                    "killer_id": 21,
+                    "name": "The Blight",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 153,
+                            "name": "Dragon's Grip"
+                        },
+                        {
+                            "perk_id": 154,
+                            "name": "Hex: Blood Favor"
+                        },
+                        {
+                            "perk_id": 155,
+                            "name": "Hex: Undying"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 23,
+                    "name": "Felix Richter",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 156,
+                            "name": "Built to Last"
+                        },
+                        {
+                            "perk_id": 157,
+                            "name": "Desperate Measures"
+                        },
+                        {
+                            "perk_id": 158,
+                            "name": "Visionary"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 20,
+            "name": "A BINDING OF KIN",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Twins\nNew Survivor: Élodie Rakoto\nAn exclusive item for Élodie",
+            "release_date": "2020-12-01",
+            "killer": [
+                {
+                    "killer_id": 22,
+                    "name": "The Twins",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 159,
+                            "name": "Hoarder"
+                        },
+                        {
+                            "perk_id": 160,
+                            "name": "Oppression"
+                        },
+                        {
+                            "perk_id": 161,
+                            "name": "Coup de Grâce"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 24,
+                    "name": "Élodie Rakoto",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 162,
+                            "name": "Appraisal"
+                        },
+                        {
+                            "perk_id": 163,
+                            "name": "Deception"
+                        },
+                        {
+                            "perk_id": 164,
+                            "name": "Power Struggle"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 21,
+            "name": "ALL-KILL",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Trickster\nNew Survivor: Yun-Jin Lee\nAn exclusive item for Yun-Jin",
+            "release_date": "2021-03-30",
+            "killer": [
+                {
+                    "killer_id": 23,
+                    "name": "The Trickster",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 165,
+                            "name": "Starstruck"
+                        },
+                        {
+                            "perk_id": 166,
+                            "name": "Hex: Crowd Control"
+                        },
+                        {
+                            "perk_id": 167,
+                            "name": "No Way Out"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 25,
+                    "name": "Yun-Jin Lee",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 168,
+                            "name": "Fast Track"
+                        },
+                        {
+                            "perk_id": 169,
+                            "name": "Smash Hit"
+                        },
+                        {
+                            "perk_id": 170,
+                            "name": "Self-Preservation"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 22,
+            "name": "RESIDENT EVIL",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Nemesis\nNew Survivor: Jill Valentine\nNew Survivor: Leon S. Kennedy\nNew Map (Free): Raccoon City Police Station\nAn exclusive universal charm",
+            "release_date": "2021-06-15",
+            "killer": [
+                {
+                    "killer_id": 24,
+                    "name": "The Nemesis",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 171,
+                            "name": "Lethal Pursuer"
+                        },
+                        {
+                            "perk_id": 172,
+                            "name": "Hysteria"
+                        },
+                        {
+                            "perk_id": 173,
+                            "name": "Eruption"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 26,
+                    "name": "Jill Valentine",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 174,
+                            "name": "Counterforce"
+                        },
+                        {
+                            "perk_id": 175,
+                            "name": "Resurgence"
+                        },
+                        {
+                            "perk_id": 176,
+                            "name": "Blast Mine"
+                        }
+                    ]
+                },
+                {
+                    "survivor_id": 27,
+                    "name": "Leon S. Kennedy",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 177,
+                            "name": "Bite the Bullet"
+                        },
+                        {
+                            "perk_id": 178,
+                            "name": "Flashbang"
+                        },
+                        {
+                            "perk_id": 179,
+                            "name": "Rookie Spirit"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 23,
+            "name": "HELLRAISER",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Cenobite\nAn exclusive universal charm",
+            "release_date": "2021-09-07",
+            "killer": [
+                {
+                    "killer_id": 25,
+                    "name": "The Cenobite – Pinhead",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 180,
+                            "name": "Deadlock"
+                        },
+                        {
+                            "perk_id": 181,
+                            "name": "Hex: Plaything"
+                        },
+                        {
+                            "perk_id": 182,
+                            "name": "Scourge Hook: Gift of Pain"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": []
+        },
+        {
+            "dlc_id": 24,
+            "name": "HOUR OF THE WITCH",
+            "description": "This Chapter DLC includes:\n\nNew Survivor: Mikaela Reid\nAn exclusive item for Mikaela",
+            "release_date": "2021-10-19",
+            "killer": [],
+            "survivor": [
+                {
+                    "survivor_id": 28,
+                    "name": "Mikaela Reid",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 183,
+                            "name": "Clairvoyance"
+                        },
+                        {
+                            "perk_id": 184,
+                            "name": "Boon: Circle of Healing"
+                        },
+                        {
+                            "perk_id": 185,
+                            "name": "Boon: Shadow Step"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 25,
+            "name": "PORTRAIT OF A MURDER",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Artist\nNew Survivor: Jonah Vasquez\nNew Map (Free): Forsaken Boneyard – Eyrie of Crows\nAn exclusive item for Jonah\n",
+            "release_date": "2021-11-30",
+            "killer": [
+                {
+                    "killer_id": 26,
+                    "name": "The Artist",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 189,
+                            "name": "Grim Embrace"
+                        },
+                        {
+                            "perk_id": 190,
+                            "name": "Scourge Hook: Pain Resonance"
+                        },
+                        {
+                            "perk_id": 191,
+                            "name": "Hex: Pentimento"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 29,
+                    "name": "Jonah Vasquez",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 186,
+                            "name": "Overcome"
+                        },
+                        {
+                            "perk_id": 187,
+                            "name": "Corrective Action"
+                        },
+                        {
+                            "perk_id": 188,
+                            "name": "Boon: Exponential"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 26,
+            "name": "SADAKO RISING",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Onryō\nNew Survivor: Yoichi Asakawa\n\nAn exclusive universal charm",
+            "release_date": "2022-03-08",
+            "killer": [
+                {
+                    "killer_id": 27,
+                    "name": "The Onryō – Sadako",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 195,
+                            "name": "Scourge Hook: Floods of Rage"
+                        },
+                        {
+                            "perk_id": 196,
+                            "name": "Call of Brine"
+                        },
+                        {
+                            "perk_id": 197,
+                            "name": "Merciless Storm"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 30,
+                    "name": "Yoichi Asakawa",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 192,
+                            "name": "Parental Guidance"
+                        },
+                        {
+                            "perk_id": 193,
+                            "name": "Empathic Connection"
+                        },
+                        {
+                            "perk_id": 194,
+                            "name": "Boon: Dark Theory"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 27,
+            "name": "ROOTS OF DREAD",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Dredge\nNew Survivor: Haddie Kaur\nNew Map (Free): The Garden of Joy\nAn exclusive item for Haddie",
+            "release_date": "2022-06-07",
+            "killer": [
+                {
+                    "killer_id": 28,
+                    "name": "The Dredge",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 201,
+                            "name": "Dissolution"
+                        },
+                        {
+                            "perk_id": 202,
+                            "name": "Darkness Revealed"
+                        },
+                        {
+                            "perk_id": 203,
+                            "name": "Septic Touch"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 31,
+                    "name": "Haddie Kaur",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 198,
+                            "name": "Inner Focus"
+                        },
+                        {
+                            "perk_id": 199,
+                            "name": "Residual Manifest"
+                        },
+                        {
+                            "perk_id": 200,
+                            "name": "Overzealous"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 28,
+            "name": "RESIDENT EVIL: PROJECT W",
+            "description": "This Chapter DLC includes:\n\nNew Killer: Albert Wesker (The Mastermind)\nNew Survivors: Ada Wong, Rebecca Chambers\nAn exclusive charm: Green Vial",
+            "release_date": "2022-08-30",
+            "killer": [
+                {
+                    "killer_id": 29,
+                    "name": "The Mastermind",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 211,
+                            "name": "Superior Anatomy"
+                        },
+                        {
+                            "perk_id": 212,
+                            "name": "Awakened Awareness"
+                        },
+                        {
+                            "perk_id": 213,
+                            "name": "Terminus"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 32,
+                    "name": "Ada Wong",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 205,
+                            "name": "Wiretap"
+                        },
+                        {
+                            "perk_id": 206,
+                            "name": "Reactive Healing"
+                        },
+                        {
+                            "perk_id": 207,
+                            "name": "Low Profile"
+                        }
+                    ]
+                },
+                {
+                    "survivor_id": 33,
+                    "name": "Rebecca Chambers",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 208,
+                            "name": "Better Than New"
+                        },
+                        {
+                            "perk_id": 209,
+                            "name": "Reassurance"
+                        },
+                        {
+                            "perk_id": 210,
+                            "name": "Hyperfocus"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 29,
+            "name": "FORGED IN FOG",
+            "description": "This Chapter DLC includes:\n\nNew Killer: The Knight\nNew Survivor: Vittorio Toscano\nNew Map (Free): The Shattered Square\nAn exclusive item for Vittorio",
+            "release_date": "2022-11-22",
+            "killer": [
+                {
+                    "killer_id": 30,
+                    "name": "The Knight",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 217,
+                            "name": "Nowhere to Hide"
+                        },
+                        {
+                            "perk_id": 218,
+                            "name": "Hex: Face the Darkness"
+                        },
+                        {
+                            "perk_id": 219,
+                            "name": "Hubris"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 34,
+                    "name": "Vittorio Toscano",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 214,
+                            "name": "Potential Energy"
+                        },
+                        {
+                            "perk_id": 215,
+                            "name": "Fogwise"
+                        },
+                        {
+                            "perk_id": 216,
+                            "name": "Quick Gambit"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 30,
+            "name": "TOOLS OF TORMENT",
+            "description": "This Chapter DLC includes:\nNew Killer: The Skull Merchant\nNew Survivors: Thalita Lyra, Renato Lyra\nUpdated Map (Free): The MacMillan Estate\nAn exclusive item for The Skull Merchant, Thalita and Renato",
+            "release_date": "2023-03-07",
+            "killer": [
+                {
+                    "killer_id": 31,
+                    "name": "The Skull Merchant",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 226,
+                            "name": "Game Afoot"
+                        },
+                        {
+                            "perk_id": 227,
+                            "name": "THWACK!"
+                        },
+                        {
+                            "perk_id": 228,
+                            "name": "Leverage"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 35,
+                    "name": "Thalita Lyra",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 220,
+                            "name": "Cut Loose"
+                        },
+                        {
+                            "perk_id": 221,
+                            "name": "Friendly Competition"
+                        },
+                        {
+                            "perk_id": 222,
+                            "name": "Teamwork: Power of Two"
+                        }
+                    ]
+                },
+                {
+                    "survivor_id": 36,
+                    "name": "Renato Lyra",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 223,
+                            "name": "Background Player"
+                        },
+                        {
+                            "perk_id": 224,
+                            "name": "Blood Rush"
+                        },
+                        {
+                            "perk_id": 225,
+                            "name": "Teamwork: Collective Stealth"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 31,
+            "name": "END TRANSMISSION",
+            "description": "What once aided our survival became the catalyst of our destruction. Dead by Daylight’s End Transmission Chapter features :\nNew Killer: The Singularity\nNew Survivor: Gabriel Soma.\nNew Map: Toba Landing, is available for all players.",
+            "release_date": "2023-06-13",
+            "killer": [
+                {
+                    "killer_id": 32,
+                    "name": "The Singularity",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 232,
+                            "name": "Genetic Limits"
+                        },
+                        {
+                            "perk_id": 233,
+                            "name": "Forced Hesitation"
+                        },
+                        {
+                            "perk_id": 234,
+                            "name": "Machine Learning"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 37,
+                    "name": "Gabriel Soma",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 229,
+                            "name": "Troubleshooter"
+                        },
+                        {
+                            "perk_id": 230,
+                            "name": "Made for This"
+                        },
+                        {
+                            "perk_id": 231,
+                            "name": "Scavenger"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 32,
+            "name": "NICOLAS CAGE",
+            "description": "It’s the performance of a lifetime. Dead by Daylight’s Nicolas Cage Chapter features :\nNew Survivor: Nicolas Cage\nAn exclusive item : Teal Jacket",
+            "release_date": "2023-07-25",
+            "killer": [],
+            "survivor": [
+                {
+                    "survivor_id": 38,
+                    "name": "Nicolas Cage",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 235,
+                            "name": "Dramaturgy"
+                        },
+                        {
+                            "perk_id": 236,
+                            "name": "Scene Partner"
+                        },
+                        {
+                            "perk_id": 237,
+                            "name": "Plot Twist"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 33,
+            "name": "ALIEN",
+            "description": "Dead by Daylight: Alien includes :\nNew Killer: the Xenomorph\nNew Survivor: Ellen Ripley\nThe Nostromo Wreckage Map is available for all players.",
+            "release_date": "2023-08-29",
+            "killer": [
+                {
+                    "killer_id": 33,
+                    "name": "The Xenomorph",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 238,
+                            "name": "Ultimate Weapon"
+                        },
+                        {
+                            "perk_id": 239,
+                            "name": "Rapid Brutality"
+                        },
+                        {
+                            "perk_id": 240,
+                            "name": "Alien Instinct"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 39,
+                    "name": "Ellen Ripley",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 241,
+                            "name": "Lucky Star"
+                        },
+                        {
+                            "perk_id": 242,
+                            "name": "Chemical Trap"
+                        },
+                        {
+                            "perk_id": 243,
+                            "name": "Light-footed"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 34,
+            "name": "THE GOOD GUY - CHUCKY",
+            "description": "Dead by Daylight: Chucky includes :\nNew Killer: Chucky\nExclusive Charm: Good Guys Box",
+            "release_date": "2023-11-28",
+            "killer": [
+                {
+                    "killer_id": 34,
+                    "name": "The Good Guy - Chucky",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 244,
+                            "name": "Hex: Two Can Play"
+                        },
+                        {
+                            "perk_id": 245,
+                            "name": "Friends ‘Til the End"
+                        },
+                        {
+                            "perk_id": 246,
+                            "name": "Batteries Included"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": []
+        },
+        {
+            "dlc_id": 35,
+            "name": "ALAN WAKE",
+            "description": "This horror story never ends. Dead by Daylight: Alan Wake includes :\nNew Survivor: Alan Wake\nExclusive Charm: Nail Gun",
+            "release_date": "2024-01-30",
+            "killer": [],
+            "survivor": [
+                {
+                    "survivor_id": 40,
+                    "name": "Alan Wake",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 247,
+                            "name": "Champion of Light"
+                        },
+                        {
+                            "perk_id": 248,
+                            "name": "Boon: Illumination"
+                        },
+                        {
+                            "perk_id": 249,
+                            "name": "Deadline"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 36,
+            "name": "ALL THINGS WICKED",
+            "description": "Dead by Daylight: All Things Wicked includes:\nNew Killer: The Unknown\nNew Survivor: Sable Ward\nNew Map (Free): The Greenville Square\nExclusive items: Designer Corset and Garden Casual",
+            "release_date": "2024-03-12",
+            "killer": [
+                {
+                    "killer_id": 35,
+                    "name": "The Unknown",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 250,
+                            "name": "Unbound"
+                        },
+                        {
+                            "perk_id": 251,
+                            "name": "Unforeseen"
+                        },
+                        {
+                            "perk_id": 252,
+                            "name": "Undone"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 41,
+                    "name": "Sable Ward",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 253,
+                            "name": "Invocation: Weaving Spiders"
+                        },
+                        {
+                            "perk_id": 254,
+                            "name": "Strength in Shadows"
+                        },
+                        {
+                            "perk_id": 255,
+                            "name": "Wicked"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 37,
+            "name": "DUNGEONS & DRAGONS",
+            "description": "Dead by Daylight: Dungeons & Dragons includes:\nNew Killer: Vecna, The Lich\nNew Survivor: Aestri Yazar\nNew Map (Free): The Forgotten Ruins\nExclusive items: Aestri: Gilded Elven Bodice, Baermar: Gilded Brocard Shirt, Vecna: Blade of Mayhem",
+            "release_date": "2024-06-03",
+            "killer": [
+                {
+                    "killer_id": 36,
+                    "name": "The Lich - Vecna",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 256,
+                            "name": "Weave Attunement"
+                        },
+                        {
+                            "perk_id": 257,
+                            "name": "Languid Touch"
+                        },
+                        {
+                            "perk_id": 258,
+                            "name": "Dark Arrogance"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 42,
+                    "name": "Aestri Yazar",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 259,
+                            "name": "Mirrored Illusion"
+                        },
+                        {
+                            "perk_id": 260,
+                            "name": "Bardic Inspiration"
+                        },
+                        {
+                            "perk_id": 261,
+                            "name": "Still Sight"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 38,
+            "name": "TOMB RAIDER",
+            "description": "Dead by Daylight: Tomb Raider includes:\nNew Survivor: Lara Croft\nExclusive Charm: Climbing Axe",
+            "release_date": "2024-07-16",
+            "killer": [],
+            "survivor": [
+                {
+                    "survivor_id": 43,
+                    "name": "Lara Croft",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 262,
+                            "name": "Finesse"
+                        },
+                        {
+                            "perk_id": 263,
+                            "name": "Hardened"
+                        },
+                        {
+                            "perk_id": 264,
+                            "name": "Specialist"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 39,
+            "name": "CASTLEVANIA",
+            "description": "Dead by Daylight: Castlevania includes:\nNew Killer: Dracula\nNew Survivor: Trevor Belmont\nExclusive Charm: Vampire Killer",
+            "release_date": "2024-08-27",
+            "killer": [
+                {
+                    "killer_id": 37,
+                    "name": "Dracula",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 265,
+                            "name": "Hex: Wretched Fate"
+                        },
+                        {
+                            "perk_id": 266,
+                            "name": "Human Greed"
+                        },
+                        {
+                            "perk_id": 267,
+                            "name": "Dominance"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 44,
+                    "name": "Trevor Belmont",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 268,
+                            "name": "Eyes of Belmont"
+                        },
+                        {
+                            "perk_id": 269,
+                            "name": "Exultation"
+                        },
+                        {
+                            "perk_id": 270,
+                            "name": "Moment of Glory"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "dlc_id": 40,
+            "name": "DOOMED COURSE",
+            "description": "Dead by Daylight: Doomed Course includes:\nNew Killer: The Houndmaster\nNew Survivor: Taurie Cain\nExclusive Cosmetics: The Houndmaster - Titanium Skull & Taurie Cain - Gold Tier.",
+            "release_date": "2024-11-28",
+            "killer": [
+                {
+                    "killer_id": 38,
+                    "name": "The Houndmaster",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 271,
+                            "name": "All-Shaking Thunder"
+                        },
+                        {
+                            "perk_id": 272,
+                            "name": "Scourge Hook: Jagged Compass"
+                        },
+                        {
+                            "perk_id": 273,
+                            "name": "No Quarter"
+                        }
+                    ],
+                    "addon": []
+                }
+            ],
+            "survivor": [
+                {
+                    "survivor_id": 45,
+                    "name": "Taurie Cain",
+                    "lore": "",
+                    "perk": [
+                        {
+                            "perk_id": 274,
+                            "name": "Invocation: Treacherous Crows"
+                        },
+                        {
+                            "perk_id": 275,
+                            "name": "Clean Break"
+                        },
+                        {
+                            "perk_id": 276,
+                            "name": "Shoulder the Burden"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
