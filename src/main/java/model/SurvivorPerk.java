@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class SurvivorPerk {
+public class SurvivorPerk implements Perk {
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

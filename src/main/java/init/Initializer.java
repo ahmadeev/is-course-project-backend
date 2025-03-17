@@ -1,25 +1,44 @@
 package init;
 
+import _repository.*;
 import jakarta.annotation.PostConstruct;
+import jakarta.ejb.EJB;
 import jakarta.ejb.Startup;
 import jakarta.ejb.Singleton;
 import jakarta.inject.Inject;
 import jakarta.json.*;
 import model.*;
-import _repository.DlcRepository;
+import utils.Utility;
 
 import java.io.FileInputStream;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Startup
 @Singleton
 public class Initializer {
     private static final String PATH = "C:\\Users\\danis\\Desktop\\is-course-project\\is-course-project\\src\\main\\resources\\json\\final-output.json";
 
-    @Inject
+    @EJB
+    protected GlobalState globalState;
+
+    @EJB
+    protected Utility utility;
+
+    @EJB
     protected DlcRepository dlcRepository;
+
+    @EJB
+    protected KillerPerkRepository killerPerkRepository;
+
+    @EJB
+    protected KillerBuildRepository killerBuildRepository;
+
+    @EJB
+    protected SurvivorPerkRepository survivorPerkRepository;
+
+    @EJB
+    protected SurvivorBuildRepository survivorBuildRepository;
 
     public void parseJson(String filePath) {
         try (FileInputStream fis = new FileInputStream(filePath);
@@ -137,6 +156,10 @@ public class Initializer {
 
             dlcRepository.createAll(dlcs);
 
+            // инициализация GlobalState
+            globalState.setKillerPerks(killerPerkRepository.findAll());
+            globalState.setSurvivorPerks(survivorPerkRepository.findAll());
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -146,8 +169,15 @@ public class Initializer {
 
     }
 
-    public void generateBuilds() {
-
+    public void generateBuilds(int count) {
+        List<KillerBuild> killerBuilds = new ArrayList<>();
+        List<SurvivorBuild> survivorBuilds = new ArrayList<>();
+        for(int i = 0; i < count; i++) {
+            killerBuilds.add(utility.generateRandomKillerBuild(globalState.getKillerPerks()));
+            survivorBuilds.add(utility.generateRandomSurvivorBuild(globalState.getSurvivorPerks()));
+        }
+        killerBuildRepository.createAll(killerBuilds);
+        survivorBuildRepository.createAll(survivorBuilds);
     }
 
     public void generateReviews() {
@@ -168,6 +198,7 @@ public class Initializer {
     public void init() {
         System.out.println("Initializing...");
         parseJson(PATH);
+        generateBuilds(50);
     }
 
 }
