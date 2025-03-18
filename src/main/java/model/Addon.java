@@ -11,6 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@Table(name = "addon")
 public class Addon {
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)

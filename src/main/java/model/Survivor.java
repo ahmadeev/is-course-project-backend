@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import model.utils.Character;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,8 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class Survivor {
+@Table(name = "survivor")
+public class Survivor implements Character {
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

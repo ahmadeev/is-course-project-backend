@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import model.utils.BaseEntity;
+import model.utils.Build;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,6 +18,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@Table(name = "killer_build")
 public class KillerBuild extends BaseEntity implements Build {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +32,17 @@ public class KillerBuild extends BaseEntity implements Build {
     )
     @Size(min = 4, max = 4, message = "KillerBuild must have exactly 4 perks")
     private List<KillerPerk> perks = new ArrayList<>();
+
+    // не относится к модели
+
+    @Column(name = "usage_count")
+    private long usageCount = 0;
+
+    @Column(name = "rating")
+    private double rating = 0.0;
+
+    @Column(name = "approved_by_admin")
+    private boolean approvedByAdmin = false;
 
     @PrePersist
     protected void onCreate() {

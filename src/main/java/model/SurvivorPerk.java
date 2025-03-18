@@ -5,12 +5,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import model.utils.Perk;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
+@Table(name = "survivor_perk")
 public class SurvivorPerk implements Perk {
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)

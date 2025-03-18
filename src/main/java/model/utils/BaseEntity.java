@@ -1,4 +1,4 @@
-package model;
+package model.utils;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
