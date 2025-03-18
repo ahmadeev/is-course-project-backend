@@ -1,5 +1,8 @@
 package dto;
 
+import jakarta.persistence.Column;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,13 +20,19 @@ import java.util.stream.Collectors;
 public class SurvivorBuildDTO {
     private Long id;
     private List<SurvivorPerkDTO> perks; // Полные объекты Perk вместо ID
+    private long usageCount = 1;
+    private double rating = 10;
+    private boolean approvedByAdmin;
 
     public static SurvivorBuildDTO fromEntity(SurvivorBuild build) {
         return new SurvivorBuildDTO(
                 build.getId(),
                 build.getPerks().stream()
                         .map(SurvivorPerkDTO::fromEntity)
-                        .collect(Collectors.toList())
+                        .collect(Collectors.toList()),
+                build.getUsageCount(),
+                build.getRating(),
+                build.isApprovedByAdmin()
         );
     }
 

@@ -36,13 +36,13 @@ public class KillerBuild extends BaseEntity implements Build {
     // не относится к модели
 
     @Column(name = "usage_count")
-    private long usageCount = 0;
+    private long usageCount = 1;
 
     @Column(name = "rating")
-    private double rating = 0.0;
+    private double rating = 10;
 
     @Column(name = "approved_by_admin")
-    private boolean approvedByAdmin = false;
+    private boolean approvedByAdmin;
 
     @PrePersist
     protected void onCreate() {

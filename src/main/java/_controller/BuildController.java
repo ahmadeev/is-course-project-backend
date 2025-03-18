@@ -8,10 +8,7 @@ import dto.KillerBuildDTO;
 import dto.SurvivorBuildDTO;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import model.Dlc;
@@ -74,5 +71,25 @@ public class BuildController {
             buildDTOs.add(buildDTO);
         }
         return Response.ok(buildDTOs).build();
+    }
+
+    @POST
+    @Path("/survivor")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response addSurvivorBuild(SurvivorBuildDTO dto) {
+        SurvivorBuild build = dto.toEntity();
+        survivorBuildService.create(build);
+        return Response.ok().build();
+    }
+
+    @PUT
+    @Path("/survivor")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response approveSurvivorBuild(SurvivorBuildDTO dto) {
+        SurvivorBuild build = new SurvivorBuild();
+        build.setId(dto.getId());
+        build.setApprovedByAdmin(dto.isApprovedByAdmin());
+        survivorBuildService.approveSurvivorBuild(build);
+        return Response.ok().build();
     }
 }

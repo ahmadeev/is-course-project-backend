@@ -17,13 +17,19 @@ import java.util.stream.Collectors;
 public class KillerBuildDTO {
     private Long id;
     private List<KillerPerkDTO> perks;
+    private long usageCount = 1;
+    private double rating = 10;
+    private boolean approvedByAdmin;
 
     public static KillerBuildDTO fromEntity(KillerBuild build) {
         return new KillerBuildDTO(
                 build.getId(),
                 build.getPerks().stream()
                         .map(KillerPerkDTO::fromEntity)
-                        .collect(Collectors.toList())
+                        .collect(Collectors.toList()),
+                build.getUsageCount(),
+                build.getRating(),
+                build.isApprovedByAdmin()
         );
     }
 

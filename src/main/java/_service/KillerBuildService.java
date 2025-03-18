@@ -3,12 +3,12 @@ package _service;
 import _repository.KillerBuildRepository;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
+import jakarta.ejb.TransactionAttribute;
 import model.KillerBuild;
 import model.KillerPerk;
+import model.SurvivorBuild;
 import utils.Utility;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 @Stateless
@@ -26,5 +26,10 @@ public class KillerBuildService extends BaseService<KillerBuild, Long> {
 
     public KillerBuild generateRandomKillerBuild(List<KillerPerk> perks) {
         return utility.generateRandomKillerBuild(perks);
+    }
+
+    @TransactionAttribute
+    public KillerBuild approveKillerBuild(KillerBuild build) {
+        return repository.update(build);
     }
 }
