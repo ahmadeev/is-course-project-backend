@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @AllArgsConstructor
@@ -15,7 +16,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class SurvivorBuild implements Build {
+public class SurvivorBuild extends BaseEntity implements Build {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -28,4 +29,15 @@ public class SurvivorBuild implements Build {
     )
     @Size(min = 4, max = 4, message = "SurvivorBuild must have exactly 4 perks")
     private List<SurvivorPerk> perks = new ArrayList<>();
+
+    @PrePersist
+    protected void onCreate() {
+        this.setCreatedAt(new Date().toString());
+        this.setUpdatedAt(new Date().toString());
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.setUpdatedAt(new Date().toString());
+    }
 }
