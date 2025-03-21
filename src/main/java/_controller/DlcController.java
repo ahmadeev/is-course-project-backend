@@ -8,6 +8,8 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import model.Dlc;
+import response.ResponseStatus;
+import responses.ResponseEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +31,7 @@ public class DlcController {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
         DlcDTO dlcDTO = DlcDTO.fromEntity(dlc);
-        return Response.ok(dlcDTO).build();
+        return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", dlcDTO)).build();
     }
 
     @GET
@@ -44,6 +46,6 @@ public class DlcController {
             DlcDTO dlcDTO = DlcDTO.fromEntity(dlc);
             dlcDTOs.add(dlcDTO);
         }
-        return Response.ok(dlcDTOs).build();
+        return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", dlcDTOs)).build();
     }
 }

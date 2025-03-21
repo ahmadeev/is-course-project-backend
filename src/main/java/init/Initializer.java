@@ -8,11 +8,14 @@ import jakarta.ejb.Singleton;
 import jakarta.inject.Inject;
 import jakarta.json.*;
 import model.*;
+import model.utils.User;
 import utils.Utility;
 
 import java.io.FileInputStream;
 import java.time.LocalDate;
 import java.util.*;
+
+import static utils.UserGenerator.generateUser;
 
 @Startup
 @Singleton
@@ -24,6 +27,9 @@ public class Initializer {
 
     @EJB
     protected Utility utility;
+
+    @EJB
+    protected UserRepository userRepository;
 
     @EJB
     protected DlcRepository dlcRepository;
@@ -165,8 +171,14 @@ public class Initializer {
         }
     }
 
-    public void generateUsers() {
-
+    public void generateUsers(int count) {
+        List<User> users = new ArrayList<>();
+        for(int i = 0; i < count; i++) {
+            User user = new User();
+            // нужно ли инжектить сервис?
+            users.add(generateUser());
+        }
+        userRepository.createAll(users);
     }
 
     public void generateBuilds(int count) {
@@ -197,8 +209,9 @@ public class Initializer {
     @PostConstruct
     public void init() {
         System.out.println("Initializing...");
+        generateUsers(10);
         parseJson(PATH);
-        generateBuilds(50);
+        generateBuilds(25);
     }
 
 }

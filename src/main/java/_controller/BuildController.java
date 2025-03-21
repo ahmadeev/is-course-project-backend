@@ -14,6 +14,8 @@ import jakarta.ws.rs.core.Response;
 import model.Dlc;
 import model.KillerBuild;
 import model.SurvivorBuild;
+import responses.ResponseEntity;
+import response.ResponseStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +56,7 @@ public class BuildController {
             SurvivorBuildDTO buildDTO = SurvivorBuildDTO.fromEntity(build);
             buildDTOs.add(buildDTO);
         }
-        return Response.ok(buildDTOs).build();
+        return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", buildDTOs)).build();
     }
 
     @GET
@@ -70,7 +72,7 @@ public class BuildController {
             KillerBuildDTO buildDTO = KillerBuildDTO.fromEntity(build);
             buildDTOs.add(buildDTO);
         }
-        return Response.ok(buildDTOs).build();
+        return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", buildDTOs)).build();
     }
 
     @POST
@@ -79,7 +81,7 @@ public class BuildController {
     public Response addSurvivorBuild(SurvivorBuildDTO dto) {
         SurvivorBuild build = dto.toEntity();
         survivorBuildService.create(build);
-        return Response.ok().build();
+        return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", null)).build();
     }
 
     @PUT
@@ -90,6 +92,6 @@ public class BuildController {
         build.setId(dto.getId());
         build.setApprovedByAdmin(dto.isApprovedByAdmin());
         survivorBuildService.approveSurvivorBuild(build);
-        return Response.ok().build();
+        return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", null)).build();
     }
 }
