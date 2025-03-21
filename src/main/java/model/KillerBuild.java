@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import model.utils.BaseEntity;
 import model.utils.Build;
+import model.utils.User;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -43,6 +44,13 @@ public class KillerBuild extends BaseEntity implements Build {
 
     @Column(name = "approved_by_admin")
     private boolean approvedByAdmin;
+
+    // ------
+
+    @ManyToMany(mappedBy = "favoriteKillerBuilds", fetch = FetchType.LAZY)
+    private List<User> favoritedByUsers = new ArrayList<>();
+
+    // ------
 
     @PrePersist
     protected void onCreate() {

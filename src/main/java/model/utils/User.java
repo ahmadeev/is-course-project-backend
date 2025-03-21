@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import model.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -42,7 +43,7 @@ public class User extends BaseEntity {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "survivor_build_id")
     )
-    List<SurvivorBuild> favoriteSurvivorBuilds;
+    List<SurvivorBuild> favoriteSurvivorBuilds = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
@@ -50,7 +51,7 @@ public class User extends BaseEntity {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "killer_build_id")
     )
-    List<KillerBuild> favoriteKillerBuilds;
+    List<KillerBuild> favoriteKillerBuilds = new ArrayList<>();
 
     @PrePersist
     protected void onCreate() {
@@ -61,5 +62,28 @@ public class User extends BaseEntity {
     @PreUpdate
     protected void onUpdate() {
         this.setUpdatedAt(new Date().toString());
+    }
+
+    // вспомогательные (не касаются сущности напрямую)
+
+    // учитывают и обратную связь в SurvivorBuild
+    public void addFavoriteSurvivorBuild(SurvivorBuild build) {
+        favoriteSurvivorBuilds.add(build);
+        build.getFavoritedByUsers().add(this);
+    }
+
+    public void removeFavoriteSurvivorBuild(SurvivorBuild build) {
+        favoriteSurvivorBuilds.remove(build);
+        build.getFavoritedByUsers().remove(this);
+    }
+
+    public void addFavoriteKillerBuild(KillerBuild build) {
+        favoriteKillerBuilds.add(build);
+        build.getFavoritedByUsers().add(this);
+    }
+
+    public void removeFavoriteKillerBuild(KillerBuild build) {
+        favoriteKillerBuilds.remove(build);
+        build.getFavoritedByUsers().remove(this);
     }
 }
