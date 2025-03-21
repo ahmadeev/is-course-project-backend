@@ -1,6 +1,9 @@
 package _controller;
 
 import _service.FavoriteService;
+import dto.KillerBuildDTO;
+import dto.SurvivorBuildDTO;
+import dto.utils.UserDTO;
 import jakarta.ejb.EJB;
 import jakarta.ws.rs.*;
         import jakarta.ws.rs.core.MediaType;
@@ -10,6 +13,7 @@ import model.SurvivorBuild;
 import response.ResponseStatus;
 import responses.ResponseEntity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Path("/favorites")
@@ -27,7 +31,11 @@ public class FavoriteController {
     public Response getFavoriteSurvivorBuilds() {
         try {
             List<SurvivorBuild> builds = favoriteService.getFavoriteSurvivorBuilds(userId);
-            return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", builds)).build();
+            List<SurvivorBuildDTO> dtos = new ArrayList<>();
+            for(SurvivorBuild build : builds) {
+                dtos.add(SurvivorBuildDTO.fromEntity(build));
+            }
+            return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", dtos)).build();
         } catch (IllegalStateException e) {
             // пока не работает корректно
             return Response.status(Response.Status.NOT_FOUND)
@@ -70,7 +78,11 @@ public class FavoriteController {
     public Response getFavoriteKillerBuilds() {
         try {
             List<KillerBuild> builds = favoriteService.getFavoriteKillerBuilds(userId);
-            return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", builds)).build();
+            List<KillerBuildDTO> dtos = new ArrayList<>();
+            for(KillerBuild build : builds) {
+                dtos.add(KillerBuildDTO.fromEntity(build));
+            }
+            return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", dtos)).build();
         } catch (IllegalStateException e) {
             // пока не работает корректно
             return Response.status(Response.Status.NOT_FOUND)
