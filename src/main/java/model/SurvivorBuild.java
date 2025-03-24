@@ -6,9 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import model.utils.BaseEntity;
-import model.utils.Build;
-import model.utils.User;
+import model.utils.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -40,14 +38,19 @@ public class SurvivorBuild extends BaseEntity implements Build {
     private long usageCount = 1;
 
     @Column(name = "rating")
-    private double rating = 10;
+    private double rating;
 
     @Column(name = "approved_by_admin")
     private boolean approvedByAdmin;
 
     // ------
+
     @ManyToMany(mappedBy = "favoriteSurvivorBuilds", fetch = FetchType.LAZY)
     private List<User> favoritedByUsers = new ArrayList<>();
+
+    @OneToMany(mappedBy = "build", cascade = CascadeType.ALL)
+    private List<UserSurvivorBuildRating> ratings = new ArrayList<>();
+
     // ------
 
     @PrePersist

@@ -53,6 +53,9 @@ public class User extends BaseEntity {
     )
     List<KillerBuild> favoriteKillerBuilds = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<UserKillerBuildRating> killerBuildRatings = new ArrayList<>();
+
     @PrePersist
     protected void onCreate() {
         this.setCreatedAt(new Date().toString());

@@ -9,6 +9,7 @@ import lombok.Setter;
 import model.utils.BaseEntity;
 import model.utils.Build;
 import model.utils.User;
+import model.utils.UserKillerBuildRating;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -40,7 +41,7 @@ public class KillerBuild extends BaseEntity implements Build {
     private long usageCount = 1;
 
     @Column(name = "rating")
-    private double rating = 10;
+    private double rating;
 
     @Column(name = "approved_by_admin")
     private boolean approvedByAdmin;
@@ -49,6 +50,9 @@ public class KillerBuild extends BaseEntity implements Build {
 
     @ManyToMany(mappedBy = "favoriteKillerBuilds", fetch = FetchType.LAZY)
     private List<User> favoritedByUsers = new ArrayList<>();
+
+    @OneToMany(mappedBy = "build", cascade = CascadeType.ALL)
+    private List<UserKillerBuildRating> ratings = new ArrayList<>();
 
     // ------
 

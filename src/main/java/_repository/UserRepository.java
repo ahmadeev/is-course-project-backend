@@ -18,6 +18,7 @@ public class UserRepository extends BaseRepository<User, Long> {
     }
 
     // решение мне не нравится, но это одно из самых понятных
+    // TODO: отменить транзацкии
     @TransactionAttribute
     public List<KillerBuild> getFavoriteKillerBuilds(Long userId) {
         try {

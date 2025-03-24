@@ -1,10 +1,15 @@
 package _service;
 
 import _repository.SurvivorBuildRepository;
+import _repository.utils.UserKillerBuildRatingRepository;
+import _repository.utils.UserSurvivorBuildRatingRepository;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import jakarta.ejb.TransactionAttribute;
 import model.*;
+import model.utils.User;
+import model.utils.UserKillerBuildRating;
+import model.utils.UserSurvivorBuildRating;
 import utils.Utility;
 
 import java.util.List;
@@ -13,6 +18,9 @@ import java.util.List;
 public class SurvivorBuildService extends BaseService<SurvivorBuild, Long> {
     @EJB
     private SurvivorBuildRepository repository;
+
+    @EJB
+    private UserSurvivorBuildRatingRepository ratingRepository;
 
     @EJB
     private Utility utility;
@@ -27,7 +35,29 @@ public class SurvivorBuildService extends BaseService<SurvivorBuild, Long> {
     }
 
     @TransactionAttribute
-    public SurvivorBuild approveSurvivorBuild(SurvivorBuild build) {
+    public SurvivorBuild approveSurvivorBuild(long buildId, boolean approved) {
+        SurvivorBuild build = repository.findById(buildId);
+        if (build == null) {
+            throw new RuntimeException();
+        }
+        build.setApprovedByAdmin(approved);
         return repository.update(build);
+    }
+
+    @TransactionAttribute
+    public List<UserSurvivorBuildRating> getRatedBuilds(User user) {
+        return ratingRepository.findByUser(user);
+    }
+
+    @TransactionAttribute
+    public void updateSurvivorBuildRating(User user, SurvivorBuild build, int rating) {
+        UserSurvivorBuildRating userSurvivorBuildRating = ratingRepository.findByUserAndBuild(user, build);
+        if (userSurvivorBuildRating == null) {
+            userSurvivorBuildRating = new UserSurvivorBuildRating();
+        }
+        userSurvivorBuildRating.setUser(user);
+        userSurvivorBuildRating.setBuild(build);
+        userSurvivorBuildRating.setRating(rating);
+        ratingRepository.update(userSurvivorBuildRating);
     }
 }

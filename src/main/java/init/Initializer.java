@@ -45,6 +45,14 @@ public class Initializer {
 
     @EJB
     protected SurvivorBuildRepository survivorBuildRepository;
+    
+    public final static boolean printingAllowed = false;
+    
+    public void conditionalPrint(String message) {
+        if (printingAllowed) {
+            System.out.println(message);
+        }
+    }
 
     public void parseJson(String filePath) {
         try (FileInputStream fis = new FileInputStream(filePath);
@@ -63,7 +71,7 @@ public class Initializer {
             // Проходим по каждому DLC
             for (JsonValue dlcValue : dlcArray) {
                 JsonObject dlc = dlcValue.asJsonObject();
-                System.out.println("DLC: " + dlc.getString("name") + " (ID: " + dlc.getInt("dlc_id") + ")");
+                conditionalPrint("DLC: " + dlc.getString("name") + " (ID: " + dlc.getInt("dlc_id") + ")");
 
                 // -----------
                 Dlc dlcJPA = new Dlc();
@@ -78,10 +86,10 @@ public class Initializer {
 
                 // Получаем массив "killer"
                 JsonArray killers = dlc.getJsonArray("killer");
-                System.out.println("Killers:");
+                conditionalPrint("Killers:");
                 for (JsonValue killerValue : killers) {
                     JsonObject killer = killerValue.asJsonObject();
-                    System.out.println("  - " + killer.getString("name") + " (ID: " + killer.getInt("killer_id") + ")");
+                    conditionalPrint("  - " + killer.getString("name") + " (ID: " + killer.getInt("killer_id") + ")");
 
                     // -----------
                     Killer killerJPA = new Killer();
@@ -96,7 +104,7 @@ public class Initializer {
                     JsonArray perks = killer.getJsonArray("perk");
                     for (JsonValue perkValue : perks) {
                         JsonObject perk = perkValue.asJsonObject();
-                        System.out.println("    - Perk: " + perk.getString("name") + " (ID: " + perk.getInt("perk_id") + ")");
+                        conditionalPrint("    - Perk: " + perk.getString("name") + " (ID: " + perk.getInt("perk_id") + ")");
 
                         // -----------
                         KillerPerk killerPerkJPA = new KillerPerk();
@@ -119,10 +127,10 @@ public class Initializer {
 
                 // Получаем массив "survivor"
                 JsonArray survivors = dlc.getJsonArray("survivor");
-                System.out.println("Survivors:");
+                conditionalPrint("Survivors:");
                 for (JsonValue survivorValue : survivors) {
                     JsonObject survivor = survivorValue.asJsonObject();
-                    System.out.println("  - " + survivor.getString("name") + " (ID: " + survivor.getInt("survivor_id") + ")");
+                    conditionalPrint("  - " + survivor.getString("name") + " (ID: " + survivor.getInt("survivor_id") + ")");
 
                     // -----------
                     Survivor survivorJPA = new Survivor();
@@ -137,7 +145,7 @@ public class Initializer {
                     JsonArray perks = survivor.getJsonArray("perk");
                     for (JsonValue perkValue : perks) {
                         JsonObject perk = perkValue.asJsonObject();
-                        System.out.println("    - Perk: " + perk.getString("name") + " (ID: " + perk.getInt("perk_id") + ")");
+                        conditionalPrint("    - Perk: " + perk.getString("name") + " (ID: " + perk.getInt("perk_id") + ")");
 
                         // -----------
                         SurvivorPerk survivorPerkJPA = new SurvivorPerk();

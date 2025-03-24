@@ -14,6 +14,9 @@ import jakarta.ws.rs.core.Response;
 import model.Dlc;
 import model.KillerBuild;
 import model.SurvivorBuild;
+import model.utils.User;
+import model.utils.UserKillerBuildRating;
+import model.utils.UserSurvivorBuildRating;
 import responses.ResponseEntity;
 import response.ResponseStatus;
 
@@ -30,6 +33,9 @@ public class BuildController {
 
     @EJB
     private KillerBuildService killerBuildService;
+
+    // TODO: заглушка
+    long userId = 1;
 
 /*    @GET
     @Path("/{id}")
@@ -85,13 +91,87 @@ public class BuildController {
     }
 
     @PUT
-    @Path("/survivor")
+    @Path("/survivor/{id}/approve")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response approveSurvivorBuild(SurvivorBuildDTO dto) {
+    public Response approveSurvivorBuild(@PathParam("id") long buildId, @QueryParam("approved") boolean isApproved) {
+        // проверка на админа
+        try {
+            survivorBuildService.approveSurvivorBuild(buildId, isApproved);
+        } catch (Exception e) {
+            return Response.status(Response.Status.NOT_FOUND).entity(
+                    new ResponseEntity(ResponseStatus.SUCCESS, "", null)
+            ).build();
+        }
+        return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", null)).build();
+    }
+
+    @POST
+    @Path("/killer")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response addKillerBuild(KillerBuildDTO dto) {
+        KillerBuild build = dto.toEntity();
+        killerBuildService.create(build);
+        return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", null)).build();
+    }
+
+    @PUT
+    @Path("/killer/{id}/approve")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response approveKillerBuild(@PathParam("id") long buildId, @QueryParam("approved") boolean isApproved) {
+        // проверка на админа
+        try {
+            killerBuildService.approveKillerBuild(buildId, isApproved);
+        } catch (Exception e) {
+            return Response.status(Response.Status.NOT_FOUND).entity(
+                    new ResponseEntity(ResponseStatus.SUCCESS, "", null)
+            ).build();
+        }
+        return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", null)).build();
+    }
+
+    @GET
+    @Path("/survivor/rating")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getSurvivorBuildRating() {
+        User user = new User();
+        user.setId(userId);
+        List<UserSurvivorBuildRating> ratedBuilds = survivorBuildService.getRatedBuilds(user);
+        return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", ratedBuilds)).build();
+    }
+
+    @PATCH
+    @Path("/survivor/{id}/rating")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateSurvivorBuildRating(@PathParam("id") long buildId, @QueryParam("rating") int rating) {
+        // TODO: попробовать через триггеры считать среднее, чтоб было за один запрос (пока некорректно работает)
         SurvivorBuild build = new SurvivorBuild();
-        build.setId(dto.getId());
-        build.setApprovedByAdmin(dto.isApprovedByAdmin());
-        survivorBuildService.approveSurvivorBuild(build);
+        build.setId(buildId);
+        User user = new User();
+        user.setId(userId);
+        survivorBuildService.updateSurvivorBuildRating(user, build, rating);
+        return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", null)).build();
+    }
+
+    @GET
+    @Path("/killer/rating")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getKillerBuildRating() {
+        User user = new User();
+        user.setId(userId);
+        List<UserKillerBuildRating> ratedBuilds = killerBuildService.getRatedBuilds(user);
+        return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", ratedBuilds)).build();
+    }
+
+    @PATCH
+    @Path("/killer/{id}/rating")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateKillerBuildRating(@PathParam("id") long buildId, @QueryParam("rating") int rating) {
+        // TODO: попробовать через триггеры считать среднее, чтоб было за один запрос (пока некорректно работает)
+        KillerBuild build = new KillerBuild();
+        build.setId(buildId);
+        User user = new User();
+        user.setId(userId);
+        killerBuildService.updateKillerBuildRating(user, build, rating);
         return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", null)).build();
     }
 }
