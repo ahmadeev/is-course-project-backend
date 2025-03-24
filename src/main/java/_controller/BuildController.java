@@ -3,17 +3,13 @@ package _controller;
 import _service.DlcService;
 import _service.KillerBuildService;
 import _service.SurvivorBuildService;
-import dto.DlcDTO;
-import dto.KillerBuildDTO;
-import dto.SurvivorBuildDTO;
+import dto.*;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import model.Dlc;
-import model.KillerBuild;
-import model.SurvivorBuild;
+import model.*;
 import model.utils.User;
 import model.utils.UserKillerBuildRating;
 import model.utils.UserSurvivorBuildRating;
@@ -21,7 +17,9 @@ import responses.ResponseEntity;
 import response.ResponseStatus;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Stateless
 @Path("/build")
@@ -37,17 +35,21 @@ public class BuildController {
     // TODO: заглушка
     long userId = 1;
 
-/*    @GET
-    @Path("/{id}")
+    @GET
+    @Path("/survivor/random")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getDlc(@PathParam("id") long id) {
-        Dlc dlc = dlcService.findById(id);
-        if (dlc == null) {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
-        DlcDTO dlcDTO = DlcDTO.fromEntity(dlc);
-        return Response.ok(dlcDTO).build();
-    }*/
+    public Response getRandomSurvivorBuild() {
+        SurvivorBuildDTO dto = SurvivorBuildDTO.fromEntity(survivorBuildService.generateRandomSurvivorBuild());
+        return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", dto)).build();
+    }
+
+    @GET
+    @Path("/killer/random")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getRandomKillerBuild() {
+        KillerBuildDTO dto = KillerBuildDTO.fromEntity(killerBuildService.generateRandomKillerBuild());
+        return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", dto)).build();
+    }
 
     @GET
     @Path("/survivor")
@@ -83,9 +85,14 @@ public class BuildController {
 
     @POST
     @Path("/survivor")
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response addSurvivorBuild(SurvivorBuildDTO dto) {
-        SurvivorBuild build = dto.toEntity();
+        SurvivorBuild build = new SurvivorBuild();
+        build.setPerks(dto.getPerks().stream()
+                .map(SurvivorPerkDTO::toEntity)
+                .collect(Collectors.toList()));
+        build.getPerks().sort(Comparator.comparing(SurvivorPerk::getId));
         survivorBuildService.create(build);
         return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", null)).build();
     }
@@ -107,9 +114,14 @@ public class BuildController {
 
     @POST
     @Path("/killer")
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response addKillerBuild(KillerBuildDTO dto) {
-        KillerBuild build = dto.toEntity();
+        KillerBuild build = new KillerBuild();
+        build.setPerks(dto.getPerks().stream()
+                        .map(KillerPerkDTO::toEntity)
+                        .collect(Collectors.toList()));
+        build.getPerks().sort(Comparator.comparing(KillerPerk::getId));
         killerBuildService.create(build);
         return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", null)).build();
     }

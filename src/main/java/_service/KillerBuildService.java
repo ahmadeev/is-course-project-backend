@@ -2,6 +2,7 @@ package _service;
 
 import _repository.KillerBuildRepository;
 import _repository.utils.UserKillerBuildRatingRepository;
+import init.GlobalState;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import jakarta.ejb.TransactionAttribute;
@@ -23,6 +24,9 @@ public class KillerBuildService extends BaseService<KillerBuild, Long> {
     private UserKillerBuildRatingRepository ratingRepository;
 
     @EJB
+    private GlobalState globalState;
+
+    @EJB
     private Utility utility;
 
     @Override
@@ -30,8 +34,8 @@ public class KillerBuildService extends BaseService<KillerBuild, Long> {
         return repository;
     }
 
-    public KillerBuild generateRandomKillerBuild(List<KillerPerk> perks) {
-        return utility.generateRandomKillerBuild(perks);
+    public KillerBuild generateRandomKillerBuild() {
+        return utility.generateRandomKillerBuild(globalState.getKillerPerks());
     }
 
     @TransactionAttribute

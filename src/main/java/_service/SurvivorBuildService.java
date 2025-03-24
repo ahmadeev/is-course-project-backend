@@ -3,6 +3,7 @@ package _service;
 import _repository.SurvivorBuildRepository;
 import _repository.utils.UserKillerBuildRatingRepository;
 import _repository.utils.UserSurvivorBuildRatingRepository;
+import init.GlobalState;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import jakarta.ejb.TransactionAttribute;
@@ -23,6 +24,9 @@ public class SurvivorBuildService extends BaseService<SurvivorBuild, Long> {
     private UserSurvivorBuildRatingRepository ratingRepository;
 
     @EJB
+    private GlobalState globalState;
+
+    @EJB
     private Utility utility;
 
     @Override
@@ -30,8 +34,8 @@ public class SurvivorBuildService extends BaseService<SurvivorBuild, Long> {
         return repository;
     }
 
-    public SurvivorBuild generateRandomSurvivorBuild(List<SurvivorPerk> perks) {
-        return utility.generateRandomSurvivorBuild(perks);
+    public SurvivorBuild generateRandomSurvivorBuild() {
+        return utility.generateRandomSurvivorBuild(globalState.getSurvivorPerks());
     }
 
     @TransactionAttribute
