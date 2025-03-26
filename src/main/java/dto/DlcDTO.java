@@ -1,5 +1,7 @@
 package dto;
 
+import dto.character.KillerDTO;
+import dto.character.SurvivorDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

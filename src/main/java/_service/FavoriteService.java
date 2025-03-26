@@ -1,14 +1,14 @@
 package _service;
 
-import _repository.KillerBuildRepository;
-import _repository.SurvivorBuildRepository;
+import _repository.build.KillerBuildRepository;
+import _repository.build.SurvivorBuildRepository;
 import _repository.UserRepository;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import jakarta.ejb.TransactionAttribute;
-import model.KillerBuild;
-import model.SurvivorBuild;
-import model.utils.User;
+import model.build.KillerBuild;
+import model.build.SurvivorBuild;
+import model._utils.User;
 
 import java.util.List;
 

@@ -1,15 +1,14 @@
 package _controller;
 
 import _service.FavoriteService;
-import dto.KillerBuildDTO;
-import dto.SurvivorBuildDTO;
-import dto.utils.UserDTO;
+import dto.build.KillerBuildDTO;
+import dto.build.SurvivorBuildDTO;
 import jakarta.ejb.EJB;
 import jakarta.ws.rs.*;
         import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import model.KillerBuild;
-import model.SurvivorBuild;
+import model.build.KillerBuild;
+import model.build.SurvivorBuild;
 import response.ResponseStatus;
 import responses.ResponseEntity;
 

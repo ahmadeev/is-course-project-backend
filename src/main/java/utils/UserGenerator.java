@@ -1,14 +1,13 @@
 package utils;
 
-import model.utils.Role;
-import model.utils.User;
+import model._utils.Role;
+import model._utils.User;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.security.SecureRandom;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 public class UserGenerator {
     private static final String[] NAMES = {"Alex", "John", "Emily", "Michael", "Sarah", "David", "Emma", "Daniel", "Olivia", "James"};

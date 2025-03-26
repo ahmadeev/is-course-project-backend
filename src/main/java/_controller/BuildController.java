@@ -1,18 +1,23 @@
 package _controller;
 
-import _service.DlcService;
-import _service.KillerBuildService;
-import _service.SurvivorBuildService;
-import dto.*;
+import _service.build.KillerBuildService;
+import _service.build.SurvivorBuildService;
+import dto.build.KillerBuildDTO;
+import dto.build.SurvivorBuildDTO;
+import dto.perk.KillerPerkDTO;
+import dto.perk.SurvivorPerkDTO;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import model.*;
-import model.utils.User;
-import model.utils.UserKillerBuildRating;
-import model.utils.UserSurvivorBuildRating;
+import model.build.KillerBuild;
+import model.build.SurvivorBuild;
+import model.perk.KillerPerk;
+import model.perk.SurvivorPerk;
+import model._utils.User;
+import model._utils.UserKillerBuildRating;
+import model._utils.UserSurvivorBuildRating;
 import responses.ResponseEntity;
 import response.ResponseStatus;
 

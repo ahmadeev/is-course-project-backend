@@ -1,18 +1,18 @@
 package _controller;
 
-import _service.DlcService;
-import _service.KillerPerkService;
-import _service.SurvivorPerkService;
-import dto.*;
+import _service.perk.KillerPerkService;
+import _service.perk.SurvivorPerkService;
+import dto.perk.KillerPerkDTO;
+import dto.perk.SurvivorPerkDTO;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import model.*;
+import model.perk.KillerPerk;
+import model.perk.SurvivorPerk;
 import response.ResponseStatus;
 import responses.ResponseEntity;
 

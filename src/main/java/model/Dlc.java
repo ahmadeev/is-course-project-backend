@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import model.character.Killer;
+import model.character.Survivor;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

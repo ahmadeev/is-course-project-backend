@@ -4,8 +4,8 @@ import jakarta.ejb.Singleton;
 import jakarta.ejb.Startup;
 import lombok.Getter;
 import lombok.Setter;
-import model.KillerPerk;
-import model.SurvivorPerk;
+import model.perk.KillerPerk;
+import model.perk.SurvivorPerk;
 
 import java.util.ArrayList;
 import java.util.List;
