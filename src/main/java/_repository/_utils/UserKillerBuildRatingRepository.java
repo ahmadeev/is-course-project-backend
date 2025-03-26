@@ -6,7 +6,7 @@ import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
 import model.build.KillerBuild;
 import model._utils.User;
-import model._utils.UserKillerBuildRating;
+import model._utils.rating.UserKillerBuildRating;
 
 import java.util.List;
 

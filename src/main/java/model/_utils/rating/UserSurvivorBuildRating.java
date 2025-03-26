@@ -1,10 +1,11 @@
-package model._utils;
+package model._utils.rating;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import model._utils.User;
 import model.build.SurvivorBuild;
 
 @AllArgsConstructor

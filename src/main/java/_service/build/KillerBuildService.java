@@ -9,7 +9,7 @@ import jakarta.ejb.Stateless;
 import jakarta.ejb.TransactionAttribute;
 import model.build.KillerBuild;
 import model._utils.User;
-import model._utils.UserKillerBuildRating;
+import model._utils.rating.UserKillerBuildRating;
 import utils.Utility;
 
 import java.util.List;

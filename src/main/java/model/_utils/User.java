@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import model._utils.rating.UserKillerBuildRating;
+import model._utils.rating.UserSurvivorBuildRating;
 import model.build.KillerBuild;
 import model.build.SurvivorBuild;
 import model.match.KillerMatch;

@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import model._utils.rating.UserSurvivorBuildRating;
 import model.perk.SurvivorPerk;
 import model._utils.*;
 

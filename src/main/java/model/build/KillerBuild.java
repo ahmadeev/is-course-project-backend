@@ -11,7 +11,7 @@ import model.perk.KillerPerk;
 import model._utils.BaseEntity;
 import model._utils.Build;
 import model._utils.User;
-import model._utils.UserKillerBuildRating;
+import model._utils.rating.UserKillerBuildRating;
 
 import java.util.ArrayList;
 import java.util.Date;

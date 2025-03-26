@@ -16,8 +16,8 @@ import model.build.SurvivorBuild;
 import model.perk.KillerPerk;
 import model.perk.SurvivorPerk;
 import model._utils.User;
-import model._utils.UserKillerBuildRating;
-import model._utils.UserSurvivorBuildRating;
+import model._utils.rating.UserKillerBuildRating;
+import model._utils.rating.UserSurvivorBuildRating;
 import responses.ResponseEntity;
 import response.ResponseStatus;
 
