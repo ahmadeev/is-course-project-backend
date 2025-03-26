@@ -11,6 +11,8 @@ import model.build.KillerBuild;
 import model.build.SurvivorBuild;
 import model.match.KillerMatch;
 import model.match.SurvivorMatch;
+import model.tag.KillerBuildTag;
+import model.tag.SurvivorBuildTag;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -70,6 +72,12 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<KillerMatch> killerMatches = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<SurvivorBuildTag> survivorBuildTags = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<KillerBuildTag> killerBuildTags = new ArrayList<>();
+
     @PrePersist
     protected void onCreate() {
         this.setCreatedAt(new Date().toString());
@@ -104,14 +112,31 @@ public class User extends BaseEntity {
         build.getFavoritedByUsers().remove(this);
     }
 
-    // учитывают и обратную связь в SurvivorMatch
+    // учитывают и обратную связь в SurvivorMatch // TODO: начиная с этого методы и в первом, и во втором
     public void addSurvivorMatch(SurvivorMatch match) {
         survivorMatches.add(match);
-        match.setUser(this);
+        match.setUser(this); // TODO: неправильно!!!
     }
 
     public void addKillerMatch(KillerMatch match) {
         killerMatches.add(match);
-        match.setUser(this);
+        match.setUser(this); // TODO: неправильно!!!
+    }
+
+    // учитывают и обратную связь в SurvivorBuildTag
+    public void addSurvivorBuildTag(SurvivorBuildTag tag) {
+        survivorBuildTags.add(tag);
+    }
+
+    public void removeSurvivorBuildTag(SurvivorBuildTag tag) {
+        survivorBuildTags.remove(tag);
+    }
+
+    public void addKillerBuildTag(KillerBuildTag tag) {
+        killerBuildTags.add(tag);
+    }
+
+    public void removeKillerBuildTag(KillerBuildTag tag) {
+        killerBuildTags.remove(tag);
     }
 }

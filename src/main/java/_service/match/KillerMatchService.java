@@ -43,6 +43,7 @@ public class KillerMatchService extends BaseService<KillerMatch, Long> {
         match.setBuild(build);
         // обновляем матчи у юзера и самого юзера
         user.addKillerMatch(match);
+        // TODO: отдельно обновить билд + вспомнить про методы
         userRepository.update(user);
         return match;
     }

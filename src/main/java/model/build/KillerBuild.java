@@ -12,10 +12,9 @@ import model._utils.BaseEntity;
 import model._utils.Build;
 import model._utils.User;
 import model._utils.rating.UserKillerBuildRating;
+import model.tag.KillerBuildTag;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -59,6 +58,9 @@ public class KillerBuild extends BaseEntity implements Build {
     @OneToMany(mappedBy = "build", fetch = FetchType.LAZY)
     private List<KillerMatch> matches = new ArrayList<>();
 
+    @OneToMany(mappedBy = "build", cascade = CascadeType.ALL)
+    private List<KillerBuildTag> tags = new ArrayList<>();
+
     // ------
 
     @PrePersist
@@ -70,5 +72,15 @@ public class KillerBuild extends BaseEntity implements Build {
     @PreUpdate
     protected void onUpdate() {
         this.setUpdatedAt(new Date().toString());
+    }
+
+    // ------
+
+    public void addKillerBuildTag(KillerBuildTag tag) {
+        tags.add(tag);
+    }
+
+    public void removeKillerBuildTag(KillerBuildTag tag) {
+        tags.remove(tag);
     }
 }

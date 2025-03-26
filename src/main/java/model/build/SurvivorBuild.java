@@ -7,12 +7,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import model._utils.rating.UserSurvivorBuildRating;
+import model.match.KillerMatch;
+import model.match.SurvivorMatch;
 import model.perk.SurvivorPerk;
 import model._utils.*;
+import model.tag.KillerBuildTag;
+import model.tag.SurvivorBuildTag;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -53,6 +55,12 @@ public class SurvivorBuild extends BaseEntity implements Build {
     @OneToMany(mappedBy = "build", cascade = CascadeType.ALL)
     private List<UserSurvivorBuildRating> ratings = new ArrayList<>();
 
+    @OneToMany(mappedBy = "build", fetch = FetchType.LAZY)
+    private List<SurvivorMatch> matches = new ArrayList<>();
+
+    @OneToMany(mappedBy = "build", cascade = CascadeType.ALL)
+    private List<SurvivorBuildTag> tags = new ArrayList<>();
+
     // ------
 
     @PrePersist
@@ -64,5 +72,15 @@ public class SurvivorBuild extends BaseEntity implements Build {
     @PreUpdate
     protected void onUpdate() {
         this.setUpdatedAt(new Date().toString());
+    }
+
+    // ------
+
+    public void addSurvivorBuildTag(SurvivorBuildTag tag) {
+        tags.add(tag);
+    }
+
+    public void removeSurvivorBuildTag(SurvivorBuildTag tag) {
+        tags.remove(tag);
     }
 }

@@ -41,6 +41,7 @@ public class SurvivorMatchService extends BaseService<SurvivorMatch, Long> {
         match.setBuild(build);
         // обновляем матчи у юзера и самого юзера
         user.addSurvivorMatch(match);
+        // TODO: отдельно обновить билд + вспомнить про методы
         userRepository.update(user);
         return match;
     }
