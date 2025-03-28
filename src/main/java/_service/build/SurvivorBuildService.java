@@ -7,12 +7,14 @@ import init.GlobalState;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import jakarta.ejb.TransactionAttribute;
+import model.build.KillerBuild;
 import model.build.SurvivorBuild;
 import model._utils.User;
 import model._utils.rating.UserSurvivorBuildRating;
 import utils.Utility;
 
 import java.util.List;
+import java.util.Optional;
 
 @Stateless
 public class SurvivorBuildService extends BaseService<SurvivorBuild, Long> {
@@ -62,5 +64,25 @@ public class SurvivorBuildService extends BaseService<SurvivorBuild, Long> {
         userSurvivorBuildRating.setBuild(build);
         userSurvivorBuildRating.setRating(rating);
         ratingRepository.update(userSurvivorBuildRating);
+    }
+
+    // ------
+
+    // 1. Случайный билд из лучших по rating (топ-10)
+    public SurvivorBuild findRandomTopRatedBuild() {
+        Optional<SurvivorBuild> build = repository.findRandomTopRatedBuild();
+        return build.orElseThrow(() -> new RuntimeException("No top-rated builds found"));
+    }
+
+    // 2. Случайный билд из самых популярных по usageCount (топ-10)
+    public SurvivorBuild findRandomMostPopularBuild() {
+        Optional<SurvivorBuild> build = repository.findRandomMostPopularBuild();
+        return build.orElseThrow(() -> new RuntimeException("No popular builds found"));
+    }
+
+    // 3. Случайный билд с approvedByAdmin == true
+    public SurvivorBuild findRandomApprovedBuild() {
+        Optional<SurvivorBuild> build = repository.findRandomApprovedBuild();
+        return build.orElseThrow(() -> new RuntimeException("No approved builds found"));
     }
 }

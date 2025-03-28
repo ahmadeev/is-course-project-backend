@@ -22,6 +22,7 @@ public class UserRepository extends BaseRepository<User, Long> {
     @TransactionAttribute
     public List<KillerBuild> getFavoriteKillerBuilds(Long userId) {
         try {
+            // TODO: getEm() -> em
             List<KillerBuild> builds = getEm()
                     .createQuery("SELECT b FROM User u JOIN u.favoriteKillerBuilds b JOIN FETCH b.perks p JOIN FETCH p.killer WHERE u.id = :userId", KillerBuild.class)
                     .setParameter("userId", userId)

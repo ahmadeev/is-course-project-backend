@@ -191,4 +191,102 @@ public class BuildController {
         killerBuildService.updateKillerBuildRating(user, build, rating);
         return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", null)).build();
     }
+
+    // ------
+
+    // 1. Случайный билд из лучших по rating (топ-10)
+    @GET
+    @Path("/killer/random/top-rated")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findRandomTopRatedKillerBuild() {
+        try {
+            KillerBuild build = killerBuildService.findRandomTopRatedBuild();
+            return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", KillerBuildDTO.fromEntity(build))).build();
+        } catch (Exception e) {
+            return Response
+                    .status(Response.Status.BAD_REQUEST)
+                    .entity(new ResponseEntity(ResponseStatus.ERROR, e.getMessage(), null))
+                    .build();
+        }
+    }
+
+    // 2. Случайный билд из самых популярных по usageCount (топ-10)
+    @GET
+    @Path("/killer/random/most-popular")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findRandomMostPopularKillerBuild() {
+        try {
+            KillerBuild build = killerBuildService.findRandomMostPopularBuild();
+            return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", KillerBuildDTO.fromEntity(build))).build();
+        } catch (Exception e) {
+            return Response
+                    .status(Response.Status.BAD_REQUEST)
+                    .entity(new ResponseEntity(ResponseStatus.ERROR, e.getMessage(), null))
+                    .build();
+        }    
+    }
+
+    // 3. Случайный билд с approvedByAdmin == true
+    @GET
+    @Path("/killer/random/approved")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findRandomApprovedKillerBuild() {
+        try {
+            KillerBuild build = killerBuildService.findRandomApprovedBuild();
+            return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", KillerBuildDTO.fromEntity(build))).build();
+        } catch (Exception e) {
+            return Response
+                    .status(Response.Status.BAD_REQUEST)
+                    .entity(new ResponseEntity(ResponseStatus.ERROR, e.getMessage(), null))
+                    .build();
+        }    
+    }
+
+    // 1. Случайный билд из лучших по rating (топ-10)
+    @GET
+    @Path("/survivor/random/top-rated")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findRandomTopRatedSurvivorBuild() {
+        try {
+            SurvivorBuild build = survivorBuildService.findRandomTopRatedBuild();
+            return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", SurvivorBuildDTO.fromEntity(build))).build();
+        } catch (Exception e) {
+            return Response
+                    .status(Response.Status.BAD_REQUEST)
+                    .entity(new ResponseEntity(ResponseStatus.ERROR, e.getMessage(), null))
+                    .build();
+        }
+    }
+
+    // 2. Случайный билд из самых популярных по usageCount (топ-10)
+    @GET
+    @Path("/survivor/random/most-popular")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findRandomMostPopularSurvivorBuild() {
+        try {
+            SurvivorBuild build = survivorBuildService.findRandomMostPopularBuild();
+            return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", SurvivorBuildDTO.fromEntity(build))).build();
+        } catch (Exception e) {
+            return Response
+                    .status(Response.Status.BAD_REQUEST)
+                    .entity(new ResponseEntity(ResponseStatus.ERROR, e.getMessage(), null))
+                    .build();
+        }
+    }
+
+    // 3. Случайный билд с approvedByAdmin == true
+    @GET
+    @Path("/survivor/random/approved")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findRandomApprovedSurvivorBuild() {
+        try {
+            SurvivorBuild build = survivorBuildService.findRandomApprovedBuild();
+            return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", SurvivorBuildDTO.fromEntity(build))).build();
+        } catch (Exception e) {
+            return Response
+                    .status(Response.Status.BAD_REQUEST)
+                    .entity(new ResponseEntity(ResponseStatus.ERROR, e.getMessage(), null))
+                    .build();
+        }
+    }
 }
