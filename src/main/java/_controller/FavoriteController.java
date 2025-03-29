@@ -4,6 +4,7 @@ import _service.FavoriteService;
 import dto.build.KillerBuildDTO;
 import dto.build.SurvivorBuildDTO;
 import jakarta.ejb.EJB;
+import jakarta.ejb.Stateless;
 import jakarta.ws.rs.*;
         import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -15,6 +16,7 @@ import responses.ResponseEntity;
 import java.util.ArrayList;
 import java.util.List;
 
+@Stateless
 @Path("/favorites")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
