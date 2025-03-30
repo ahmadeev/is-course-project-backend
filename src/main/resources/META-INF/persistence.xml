@@ -3,10 +3,24 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd"
              version="3.2">
+
     <persistence-unit name="default">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <jta-data-source>java:jboss/datasources/PostgresDS</jta-data-source>
+        <properties>
+            <property name="hibernate.jpa.compliance.query" value="false"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+        </properties>
+    </persistence-unit>
+
+<!--    <persistence-unit name="default">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>java:/PostgresDS</jta-data-source>
-<!--        <class>objects.Dragon</class>-->
+        &lt;!&ndash;        <class>objects.Dragon</class>&ndash;&gt;
         <properties>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
             <property name="hibernate.connection.url" value="${DB_URL}"/>
@@ -15,12 +29,11 @@
             <property name="hibernate.jpa.compliance.query" value="false"/>
             <property name="hibernate.show_sql" value="false"/>
             <property name="hibernate.format_sql" value="true"/>
-            <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- update -->
-            <!-- нужно ставить update или create-drop, чтобы выполнялся файл resources/functions.sql -->
-            <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/> <!-- drop-and-create -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/> &lt;!&ndash; update &ndash;&gt;
+            &lt;!&ndash; нужно ставить update или create-drop, чтобы выполнялся файл resources/functions.sql &ndash;&gt;
+            <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/> &lt;!&ndash; drop-and-create &ndash;&gt;
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
-
-            <!--            <property name="hibernate.hbm2ddl.import_files" value="functions.sql"/>-->
+            &lt;!&ndash;            <property name="hibernate.hbm2ddl.import_files" value="functions.sql"/>&ndash;&gt;
         </properties>
-    </persistence-unit>
+    </persistence-unit>-->
 </persistence>

@@ -63,7 +63,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.7.0</version>
+            <version>42.7.4</version>
         </dependency>
 
         <!-- можно оставить меньше (транзитивная подгрузка) -->
@@ -104,7 +104,23 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.4.0</version>
+                <!-- костылек -->
+                <configuration>
+                    <warSourceIncludes>WEB-INF/classes/META-INF/persistence.xml, WEB-INF/classes/json/final-output.json</warSourceIncludes>
+                </configuration>
             </plugin>
         </plugins>
+
+        <resources>
+            <resource>
+                <filtering>false</filtering>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>META-INF/persistence.xml</include>
+                    <include>json/final-output.json</include>
+                </includes>
+            </resource>
+        </resources>
+
     </build>
 </project>

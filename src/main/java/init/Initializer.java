@@ -21,6 +21,7 @@ import model._utils.User;
 import utils.Utility;
 
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -29,7 +30,10 @@ import static utils.UserGenerator.generateUser;
 @Startup
 @Singleton
 public class Initializer {
-    private static final String PATH = "C:\\Users\\danis\\Desktop\\is-course-project\\is-course-project\\src\\main\\resources\\json\\final-output.json";
+    // TOOD: локалка
+    // private static final String PATH = "C:\\Users\\danis\\Desktop\\is-course-project\\is-course-project\\src\\main\\resources\\json\\final-output.json";
+    // TODO: докер
+    private static final String PATH = "json/final-output.json";
 
     @EJB
     protected GlobalState globalState;
@@ -64,7 +68,8 @@ public class Initializer {
     }
 
     public void parseJson(String filePath) {
-        try (FileInputStream fis = new FileInputStream(filePath);
+        // try (FileInputStream fis = new FileInputStream(filePath); // TODO: ЛОКАЛКА
+        try (InputStream fis = getClass().getClassLoader().getResourceAsStream(filePath); // TODO: докер
              JsonReader reader = Json.createReader(fis)) {
 
             // Читаем весь JSON как объект
