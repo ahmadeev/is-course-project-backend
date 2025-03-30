@@ -5,13 +5,57 @@ import jakarta.ejb.Stateless;
 import jakarta.persistence.Query;
 import model.build.KillerBuild;
 import model.build.SurvivorBuild;
+import model.perk.KillerPerk;
+import model.perk.SurvivorPerk;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Stateless
 public class SurvivorBuildRepository extends BaseRepository<SurvivorBuild, Long> {
     public SurvivorBuildRepository() {
         super(SurvivorBuild.class);
+    }
+
+    @Override
+    public SurvivorBuild create(SurvivorBuild entity) {
+        if (entity == null || entity.getPerks() == null || entity.getPerks().size() != 4) {
+            throw new IllegalArgumentException("SurvivorBuild must have exactly 4 perks");
+        }
+
+        // сортировка (иначе ломается, такое правило)
+        List<Long> newPerkIds = entity.getPerks().stream()
+                .map(SurvivorPerk::getId)
+                .sorted()
+                .collect(Collectors.toList());
+
+        List<SurvivorBuild> allBuilds = em.createQuery(
+                "SELECT kb FROM SurvivorBuild kb JOIN FETCH kb.perks p",
+                SurvivorBuild.class
+        ).getResultList();
+
+        SurvivorBuild existingBuild = allBuilds.stream()
+                .filter(kb -> {
+                    List<Long> existingPerkIds = kb.getPerks().stream()
+                            .map(SurvivorPerk::getId)
+                            .sorted()
+                            .collect(Collectors.toList());
+                    return existingPerkIds.equals(newPerkIds);
+                })
+                .findFirst()
+                .orElse(null);
+
+        if (existingBuild != null) {
+            // билд существует -- увеличиваем usage_count
+            existingBuild.setUsageCount(existingBuild.getUsageCount() + 1);
+            em.merge(existingBuild);
+            return existingBuild;
+        } else {
+            // билда нет -- сохраняем новый
+            em.persist(entity);
+            return entity;
+        }
     }
 
     // 1. Случайный билд из лучших по rating (топ-10)

@@ -4,13 +4,56 @@ import _repository.BaseRepository;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.Query;
 import model.build.KillerBuild;
+import model.perk.KillerPerk;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Stateless
 public class KillerBuildRepository extends BaseRepository<KillerBuild, Long> {
     public KillerBuildRepository() {
         super(KillerBuild.class);
+    }
+
+    @Override
+    public KillerBuild create(KillerBuild entity) {
+        if (entity == null || entity.getPerks() == null || entity.getPerks().size() != 4) {
+            throw new IllegalArgumentException("KillerBuild must have exactly 4 perks");
+        }
+
+        // сортировка (иначе ломается, такое правило)
+        List<Long> newPerkIds = entity.getPerks().stream()
+                .map(KillerPerk::getId)
+                .sorted()
+                .collect(Collectors.toList());
+
+        List<KillerBuild> allBuilds = em.createQuery(
+                "SELECT kb FROM KillerBuild kb JOIN FETCH kb.perks p",
+                KillerBuild.class
+        ).getResultList();
+
+        KillerBuild existingBuild = allBuilds.stream()
+                .filter(kb -> {
+                    List<Long> existingPerkIds = kb.getPerks().stream()
+                            .map(KillerPerk::getId)
+                            .sorted()
+                            .collect(Collectors.toList());
+                    return existingPerkIds.equals(newPerkIds);
+                })
+                .findFirst()
+                .orElse(null);
+
+        if (existingBuild != null) {
+            // билд существует -- увеличиваем usage_count
+            existingBuild.setUsageCount(existingBuild.getUsageCount() + 1);
+            em.merge(existingBuild);
+            return existingBuild;
+        } else {
+            // билда нет -- сохраняем новый
+            em.persist(entity);
+            return entity;
+        }
     }
 
     // 1. Случайный билд из лучших по rating (топ-10)
