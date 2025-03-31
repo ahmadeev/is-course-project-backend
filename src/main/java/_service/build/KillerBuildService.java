@@ -11,6 +11,7 @@ import jakarta.persistence.Query;
 import model.build.KillerBuild;
 import model._utils.User;
 import model._utils.rating.UserKillerBuildRating;
+import org.hibernate.Hibernate;
 import utils.Utility;
 
 import java.util.ArrayList;
@@ -48,6 +49,11 @@ public class KillerBuildService extends BaseService<KillerBuild, Long> {
         }
         build.setApprovedByAdmin(approved);
         return repository.update(build);
+    }
+
+    @TransactionAttribute
+    public UserKillerBuildRating getRatedBuild(User user, KillerBuild build) {
+        return ratingRepository.findByUserAndBuild(user, build);
     }
 
     @TransactionAttribute

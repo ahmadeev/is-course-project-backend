@@ -10,6 +10,8 @@ import jakarta.ejb.EJB;
 import jakarta.ejb.Startup;
 import jakarta.ejb.Singleton;
 import jakarta.json.*;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import model.*;
 import model._utils.Role;
 import model.build.KillerBuild;
@@ -33,6 +35,10 @@ import static utils.UserGenerator.hashPassword;
 @Startup
 @Singleton
 public class Initializer {
+
+    @PersistenceContext
+    private EntityManager em;
+
     // TOOD: локалка
     // private static final String PATH = "C:\\Users\\danis\\Desktop\\is-course-project\\is-course-project\\src\\main\\resources\\json\\final-output.json";
     // TODO: докер
@@ -240,7 +246,126 @@ public class Initializer {
     // --------------
 
     public void generateTriggers() {
+        try {
+            // Создание функции для INSERT и UPDATE
+            em.createNativeQuery(
+                    "CREATE OR REPLACE FUNCTION update_killer_build_rating() RETURNS TRIGGER AS $$ " +
+                            "BEGIN " +
+                            "    UPDATE killer_build " +
+                            "    SET rating = ( " +
+                            "        SELECT COALESCE(AVG(rating), 0) " +
+                            "        FROM user_killer_build_rating " +
+                            "        WHERE build_id = NEW.build_id " +
+                            "    ) " +
+                            "    WHERE id = NEW.build_id; " +
+                            "    RETURN NEW; " +
+                            "END; " +
+                            "$$ LANGUAGE plpgsql;"
+            ).executeUpdate();
 
+            // Создание функции для DELETE
+            em.createNativeQuery(
+                    "CREATE OR REPLACE FUNCTION update_killer_build_rating_on_delete() RETURNS TRIGGER AS $$ " +
+                            "BEGIN " +
+                            "    UPDATE killer_build " +
+                            "    SET rating = ( " +
+                            "        SELECT COALESCE(AVG(rating), 0) " +
+                            "        FROM user_killer_build_rating " +
+                            "        WHERE build_id = OLD.build_id " +
+                            "    ) " +
+                            "    WHERE id = OLD.build_id; " +
+                            "    RETURN OLD; " +
+                            "END; " +
+                            "$$ LANGUAGE plpgsql;"
+            ).executeUpdate();
+
+            // Триггер для INSERT
+            em.createNativeQuery(
+                    "CREATE TRIGGER after_user_killer_build_rating_insert " +
+                            "AFTER INSERT ON user_killer_build_rating " +
+                            "FOR EACH ROW " +
+                            "EXECUTE FUNCTION update_killer_build_rating();"
+            ).executeUpdate();
+
+            // Триггер для UPDATE
+            em.createNativeQuery(
+                    "CREATE TRIGGER after_user_killer_build_rating_update " +
+                            "AFTER UPDATE ON user_killer_build_rating " +
+                            "FOR EACH ROW " +
+                            "EXECUTE FUNCTION update_killer_build_rating();"
+            ).executeUpdate();
+
+            // Триггер для DELETE
+            em.createNativeQuery(
+                    "CREATE TRIGGER after_user_killer_build_rating_delete " +
+                            "AFTER DELETE ON user_killer_build_rating " +
+                            "FOR EACH ROW " +
+                            "EXECUTE FUNCTION update_killer_build_rating_on_delete();"
+            ).executeUpdate();
+            
+            // ------
+
+            // Создание функции для INSERT и UPDATE
+            em.createNativeQuery(
+                    "CREATE OR REPLACE FUNCTION update_survivor_build_rating() RETURNS TRIGGER AS $$ " +
+                            "BEGIN " +
+                            "    UPDATE survivor_build " +
+                            "    SET rating = ( " +
+                            "        SELECT COALESCE(AVG(rating), 0) " +
+                            "        FROM user_survivor_build_rating " +
+                            "        WHERE build_id = NEW.build_id " +
+                            "    ) " +
+                            "    WHERE id = NEW.build_id; " +
+                            "    RETURN NEW; " +
+                            "END; " +
+                            "$$ LANGUAGE plpgsql;"
+            ).executeUpdate();
+
+            // Создание функции для DELETE
+            em.createNativeQuery(
+                    "CREATE OR REPLACE FUNCTION update_survivor_build_rating_on_delete() RETURNS TRIGGER AS $$ " +
+                            "BEGIN " +
+                            "    UPDATE survivor_build " +
+                            "    SET rating = ( " +
+                            "        SELECT COALESCE(AVG(rating), 0) " +
+                            "        FROM user_survivor_build_rating " +
+                            "        WHERE build_id = OLD.build_id " +
+                            "    ) " +
+                            "    WHERE id = OLD.build_id; " +
+                            "    RETURN OLD; " +
+                            "END; " +
+                            "$$ LANGUAGE plpgsql;"
+            ).executeUpdate();
+
+            // Триггер для INSERT
+            em.createNativeQuery(
+                    "CREATE TRIGGER after_user_survivor_build_rating_insert " +
+                            "AFTER INSERT ON user_survivor_build_rating " +
+                            "FOR EACH ROW " +
+                            "EXECUTE FUNCTION update_survivor_build_rating();"
+            ).executeUpdate();
+
+            // Триггер для UPDATE
+            em.createNativeQuery(
+                    "CREATE TRIGGER after_user_survivor_build_rating_update " +
+                            "AFTER UPDATE ON user_survivor_build_rating " +
+                            "FOR EACH ROW " +
+                            "EXECUTE FUNCTION update_survivor_build_rating();"
+            ).executeUpdate();
+
+            // Триггер для DELETE
+            em.createNativeQuery(
+                    "CREATE TRIGGER after_user_survivor_build_rating_delete " +
+                            "AFTER DELETE ON user_survivor_build_rating " +
+                            "FOR EACH ROW " +
+                            "EXECUTE FUNCTION update_survivor_build_rating_on_delete();"
+            ).executeUpdate();
+
+            System.out.println("Триггеры успешно созданы");
+        } catch (Exception e) {
+            System.err.println("Ошибка при создании триггеров: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     public void generateFunctionsAndProcedures() {
@@ -253,6 +378,7 @@ public class Initializer {
         generateUsers(10);
         parseJson(PATH);
         generateBuilds(25);
+        generateTriggers();
     }
 
 }

@@ -3,6 +3,8 @@ package _controller;
 import _service.build.KillerBuildService;
 import _service.build.SurvivorBuildService;
 import auth.UserPrincipal;
+import dto._utils.UserKillerBuildRatingDTO;
+import dto._utils.UserSurvivorBuildRatingDTO;
 import dto.build.KillerBuildDTO;
 import dto.build.SurvivorBuildDTO;
 import dto.perk.KillerPerkDTO;
@@ -150,6 +152,22 @@ public class BuildController {
     @GET
     @Path("/survivor/rating")
     @Produces(MediaType.APPLICATION_JSON)
+    public Response getSurvivorBuildRating(@QueryParam("build") long id, @Context SecurityContext securityContext) {
+        UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
+        User user = new User();
+        user.setId(userPrincipal.getUserId());
+
+        SurvivorBuild build = new SurvivorBuild();
+        build.setId(id);
+
+        UserSurvivorBuildRating ratedBuild = survivorBuildService.getRatedBuild(user, build);
+        UserSurvivorBuildRatingDTO ratedBuildDTO = UserSurvivorBuildRatingDTO.fromEntity(ratedBuild);
+        return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", ratedBuildDTO)).build();
+    }
+
+    @GET
+    @Path("/survivor/rating")
+    @Produces(MediaType.APPLICATION_JSON)
     public Response getSurvivorBuildRating(@Context SecurityContext securityContext) {
         UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
         User user = new User();
@@ -177,6 +195,22 @@ public class BuildController {
 
         survivorBuildService.updateSurvivorBuildRating(user, build, rating);
         return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", null)).build();
+    }
+
+    @GET
+    @Path("/killer/rating")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getKillerBuildRating(@QueryParam("build") long id, @Context SecurityContext securityContext) {
+        UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
+        User user = new User();
+        user.setId(userPrincipal.getUserId());
+
+        KillerBuild build = new KillerBuild();
+        build.setId(id);
+
+        UserKillerBuildRating ratedBuild = killerBuildService.getRatedBuild(user, build);
+        UserKillerBuildRatingDTO ratedBuildDTO = UserKillerBuildRatingDTO.fromEntity(ratedBuild);
+        return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", ratedBuildDTO)).build();
     }
 
     @GET

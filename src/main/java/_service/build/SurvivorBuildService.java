@@ -7,6 +7,7 @@ import init.GlobalState;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import jakarta.ejb.TransactionAttribute;
+import model._utils.rating.UserKillerBuildRating;
 import model.build.KillerBuild;
 import model.build.SurvivorBuild;
 import model._utils.User;
@@ -47,6 +48,11 @@ public class SurvivorBuildService extends BaseService<SurvivorBuild, Long> {
         }
         build.setApprovedByAdmin(approved);
         return repository.update(build);
+    }
+
+    @TransactionAttribute
+    public UserSurvivorBuildRating getRatedBuild(User user, SurvivorBuild build) {
+        return ratingRepository.findByUserAndBuild(user, build);
     }
 
     @TransactionAttribute
