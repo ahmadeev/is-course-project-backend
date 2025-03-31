@@ -2,13 +2,16 @@ package _controller;
 
 import _service.tag.KillerBuildTagService;
 import _service.tag.SurvivorBuildTagService;
+import auth.UserPrincipal;
 import dto.tag.KillerBuildTagDTO;
 import dto.tag.SurvivorBuildTagDTO;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.SecurityContext;
 import model._utils.User;
 import model.build.KillerBuild;
 import model.build.SurvivorBuild;
@@ -28,14 +31,13 @@ public class TagController {
     @EJB
     protected SurvivorBuildTagService survivorBuildTagService;
 
-    private final static long userId = 1;
-
     @GET
     @Path("/build/killer")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getKillerBuildTagByBuild(
             @DefaultValue("-1") @QueryParam("build") long buildId,
-            @DefaultValue("false") @QueryParam("all") boolean all
+            @DefaultValue("false") @QueryParam("all") boolean all,
+            @Context SecurityContext securityContext
     ) {
         List<KillerBuildTag> tags;
 
@@ -44,8 +46,11 @@ public class TagController {
         // 1) юзер, 2) билд, 3) все
         if (!all && buildId == -1) {
             System.out.println("user");
+
+            UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
             User user = new User();
-            user.setId(userId);
+            user.setId(userPrincipal.getUserId());
+
             tags = killerBuildTagService.getKillerBuildTags(user);
         } else if (!all && buildId != -1) {
             System.out.println("build");
@@ -74,11 +79,12 @@ public class TagController {
     @Path("/build/killer")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response addKillerBuildTag(KillerBuildTagDTO dto) {
+    public Response addKillerBuildTag(KillerBuildTagDTO dto, @Context SecurityContext securityContext) {
         KillerBuildTag tag = new KillerBuildTag();
 
+        UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
         User user = new User();
-        user.setId(userId);
+        user.setId(userPrincipal.getUserId());
 
         KillerBuild build = new KillerBuild();
         build.setId(dto.getBuild().getId());
@@ -95,11 +101,12 @@ public class TagController {
     @Path("/build/killer/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response removeKillerBuildTag(@PathParam("id") long id) {
+    public Response removeKillerBuildTag(@PathParam("id") long id, @Context SecurityContext securityContext) {
         KillerBuildTag tag = new KillerBuildTag();
 
+        UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
         User user = new User();
-        user.setId(userId);
+        user.setId(userPrincipal.getUserId());
 
         tag.setUser(user);
         tag.setId(id);
@@ -113,7 +120,8 @@ public class TagController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getSurvivorBuildTagByBuild(
             @DefaultValue("-1") @QueryParam("build") long buildId,
-            @DefaultValue("false") @QueryParam("all") boolean all
+            @DefaultValue("false") @QueryParam("all") boolean all,
+            @Context SecurityContext securityContext
     ) {
         List<SurvivorBuildTag> tags;
 
@@ -122,8 +130,11 @@ public class TagController {
         // 1) юзер, 2) билд, 3) все
         if (!all && buildId == -1) {
             System.out.println("user");
+
+            UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
             User user = new User();
-            user.setId(userId);
+            user.setId(userPrincipal.getUserId());
+
             tags = survivorBuildTagService.getSurvivorBuildTags(user);
         } else if (!all && buildId != -1) {
             System.out.println("build");
@@ -152,11 +163,12 @@ public class TagController {
     @Path("/build/survivor")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response addSurvivorBuildTag(SurvivorBuildTagDTO dto) {
+    public Response addSurvivorBuildTag(SurvivorBuildTagDTO dto, @Context SecurityContext securityContext) {
         SurvivorBuildTag tag = new SurvivorBuildTag();
 
+        UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
         User user = new User();
-        user.setId(userId);
+        user.setId(userPrincipal.getUserId());
 
         SurvivorBuild build = new SurvivorBuild();
         build.setId(dto.getBuild().getId());
@@ -173,11 +185,12 @@ public class TagController {
     @Path("/build/survivor/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response removeSurvivorBuildTag(@PathParam("id") long id) {
+    public Response removeSurvivorBuildTag(@PathParam("id") long id, @Context SecurityContext securityContext) {
         SurvivorBuildTag tag = new SurvivorBuildTag();
 
+        UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
         User user = new User();
-        user.setId(userId);
+        user.setId(userPrincipal.getUserId());
 
         tag.setUser(user);
         tag.setId(id);

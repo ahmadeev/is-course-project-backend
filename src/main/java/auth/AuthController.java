@@ -56,6 +56,7 @@ public class AuthController {
         if (BCrypt.checkpw(userInput.getPassword(), userStored.getPassword())) {
             String token = JWT.create()
                     .withSubject(userStored.getUsername())
+                    .withClaim("id", userStored.getId())
                     .withClaim("roles", userStored.getRoles().toString())
                     .withExpiresAt(new Date(System.currentTimeMillis() + 3_600_000)) // 1 час = 3_600_000, 1 минута = 60_000
                     .sign(Algorithm.HMAC256(SECRET_KEY));

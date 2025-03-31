@@ -2,6 +2,7 @@ package _controller;
 
 import _service.match.KillerMatchService;
 import _service.match.SurvivorMatchService;
+import auth.UserPrincipal;
 import dto.build.KillerBuildDTO;
 import dto.build.SurvivorBuildDTO;
 import dto.match.KillerMatchDTO;
@@ -11,8 +12,10 @@ import dto.perk.SurvivorPerkDTO;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.SecurityContext;
 import model._utils.User;
 import model.build.KillerBuild;
 import model.build.SurvivorBuild;
@@ -33,18 +36,16 @@ public class MatchController {
     @EJB
     private SurvivorMatchService survivorMatchService;
 
-    // TODO: костыль
-    private final static long id = 1;
-
     @POST
     @Path("/killer")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response addKillerMatch(KillerMatchDTO dto) {
+    public Response addKillerMatch(KillerMatchDTO dto, @Context SecurityContext securityContext) {
         KillerMatch match = new KillerMatch();
 
+        UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
         User user = new User();
-        user.setId(id);
+        user.setId(userPrincipal.getUserId());
 
         KillerBuild build = new KillerBuild();
         build.setPerks(dto.getBuild().getPerks().stream().map(KillerPerkDTO::toEntity).collect(Collectors.toList()));
@@ -60,9 +61,11 @@ public class MatchController {
     @GET
     @Path("/killer")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllKillerMatchByUser() {
+    public Response getAllKillerMatchByUser(@Context SecurityContext securityContext) {
+        UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
         User user = new User();
-        user.setId(id);
+        user.setId(userPrincipal.getUserId());
+
         List<KillerMatch> matches = killerMatchService.getKillerMatches(user);
         List<KillerMatchDTO> dtos = matches
                 .stream()
@@ -75,11 +78,12 @@ public class MatchController {
     @Path("/survivor")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response addSurvivorMatch(SurvivorMatchDTO dto) {
+    public Response addSurvivorMatch(SurvivorMatchDTO dto, @Context SecurityContext securityContext) {
         SurvivorMatch match = new SurvivorMatch();
 
+        UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
         User user = new User();
-        user.setId(id);
+        user.setId(userPrincipal.getUserId());
 
         SurvivorBuild build = new SurvivorBuild();
         build.setPerks(dto.getBuild().getPerks().stream().map(SurvivorPerkDTO::toEntity).collect(Collectors.toList()));
@@ -95,9 +99,11 @@ public class MatchController {
     @GET
     @Path("/survivor")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllSurvivorMatchByUser() {
+    public Response getAllSurvivorMatchByUser(@Context SecurityContext securityContext) {
+        UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
         User user = new User();
-        user.setId(id);
+        user.setId(userPrincipal.getUserId());
+
         List<SurvivorMatch> matches = survivorMatchService.getSurvivorMatches(user);
         List<SurvivorMatchDTO> dtos = matches
                 .stream()

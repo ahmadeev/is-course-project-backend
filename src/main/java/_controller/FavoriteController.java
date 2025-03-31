@@ -1,13 +1,17 @@
 package _controller;
 
 import _service.FavoriteService;
+import auth.UserPrincipal;
 import dto.build.KillerBuildDTO;
 import dto.build.SurvivorBuildDTO;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import jakarta.ws.rs.*;
-        import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.SecurityContext;
+import model._utils.User;
 import model.build.KillerBuild;
 import model.build.SurvivorBuild;
 import response.ResponseStatus;
@@ -24,14 +28,13 @@ public class FavoriteController {
     @EJB
     private FavoriteService favoriteService;
 
-    // TODO: заглушка
-    long userId = 1;
-
     @GET
     @Path("/build/survivor")
-    public Response getFavoriteSurvivorBuilds() {
+    public Response getFavoriteSurvivorBuilds(@Context SecurityContext securityContext) {
         try {
-            List<SurvivorBuild> builds = favoriteService.getFavoriteSurvivorBuilds(userId);
+            UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
+
+            List<SurvivorBuild> builds = favoriteService.getFavoriteSurvivorBuilds(userPrincipal.getUserId());
             List<SurvivorBuildDTO> dtos = new ArrayList<>();
             for(SurvivorBuild build : builds) {
                 dtos.add(SurvivorBuildDTO.fromEntity(build));
@@ -48,9 +51,13 @@ public class FavoriteController {
     @POST
     @Path("/build/survivor/{buildId}")
     public Response addSurvivorBuildToFavorites(
-            @PathParam("buildId") Long buildId) {
+            @PathParam("buildId") Long buildId,
+            @Context SecurityContext securityContext
+    ) {
         try {
-            favoriteService.addSurvivorBuildToFavorites(userId, buildId);
+            UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
+
+            favoriteService.addSurvivorBuildToFavorites(userPrincipal.getUserId(), buildId);
             return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", null)).build();
         } catch (IllegalArgumentException e) {
             // пока не работает корректно
@@ -63,9 +70,13 @@ public class FavoriteController {
     @DELETE
     @Path("/build/survivor/{buildId}")
     public Response removeSurvivorBuildFromFavorites(
-            @PathParam("buildId") Long buildId) {
+            @PathParam("buildId") Long buildId,
+            @Context SecurityContext securityContext
+    ) {
         try {
-            favoriteService.removeSurvivorBuildFromFavorites(userId, buildId);
+            UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
+
+            favoriteService.removeSurvivorBuildFromFavorites(userPrincipal.getUserId(), buildId);
             return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", null)).build();
         } catch (IllegalArgumentException e) {
             return Response.status(Response.Status.NOT_FOUND)
@@ -76,9 +87,11 @@ public class FavoriteController {
 
     @GET
     @Path("/build/killer")
-    public Response getFavoriteKillerBuilds() {
+    public Response getFavoriteKillerBuilds(@Context SecurityContext securityContext) {
         try {
-            List<KillerBuild> builds = favoriteService.getFavoriteKillerBuilds(userId);
+            UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
+
+            List<KillerBuild> builds = favoriteService.getFavoriteKillerBuilds(userPrincipal.getUserId());
             List<KillerBuildDTO> dtos = new ArrayList<>();
             for(KillerBuild build : builds) {
                 dtos.add(KillerBuildDTO.fromEntity(build));
@@ -95,9 +108,13 @@ public class FavoriteController {
     @POST
     @Path("/build/killer/{buildId}")
     public Response addKillerBuildToFavorites(
-            @PathParam("buildId") Long buildId) {
+            @PathParam("buildId") Long buildId,
+            @Context SecurityContext securityContext
+    ) {
         try {
-            favoriteService.addKillerBuildToFavorites(userId, buildId);
+            UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
+
+            favoriteService.addKillerBuildToFavorites(userPrincipal.getUserId(), buildId);
             return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", null)).build();
         } catch (IllegalArgumentException e) {
             return Response.status(Response.Status.NOT_FOUND)
@@ -109,9 +126,13 @@ public class FavoriteController {
     @DELETE
     @Path("/build/killer/{buildId}")
     public Response removeKillerBuildFromFavorites(
-            @PathParam("buildId") Long buildId) {
+            @PathParam("buildId") Long buildId,
+            @Context SecurityContext securityContext
+    ) {
         try {
-            favoriteService.removeKillerBuildFromFavorites(userId, buildId);
+            UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
+
+            favoriteService.removeKillerBuildFromFavorites(userPrincipal.getUserId(), buildId);
             return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", null)).build();
         } catch (IllegalArgumentException e) {
             return Response.status(Response.Status.NOT_FOUND)

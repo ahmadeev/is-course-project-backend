@@ -63,6 +63,8 @@ public class AuthFilter implements ContainerRequestFilter {
                 // если токен валидный, извлекаем информацию, например, имя пользователя
                 String username = decodedJWT.getSubject();
 
+                Long userId = decodedJWT.getClaim("id").asLong();
+
                 // извлечение ролей
                 List<Role> roles = parseRolesFromJwt(decodedJWT.getClaim("roles").asString());
 
@@ -70,7 +72,7 @@ public class AuthFilter implements ContainerRequestFilter {
                 requestContext.setSecurityContext(new SecurityContext() {
                     @Override
                     public Principal getUserPrincipal() {
-                        return () -> username; // Principal возвращает имя пользователя
+                        return new UserPrincipal(username, userId);
                     }
 
                     @Override

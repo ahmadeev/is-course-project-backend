@@ -2,6 +2,7 @@ package _controller;
 
 import _service.build.KillerBuildService;
 import _service.build.SurvivorBuildService;
+import auth.UserPrincipal;
 import dto.build.KillerBuildDTO;
 import dto.build.SurvivorBuildDTO;
 import dto.perk.KillerPerkDTO;
@@ -9,8 +10,10 @@ import dto.perk.SurvivorPerkDTO;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.SecurityContext;
 import model.build.KillerBuild;
 import model.build.SurvivorBuild;
 import model.perk.KillerPerk;
@@ -21,6 +24,7 @@ import model._utils.rating.UserSurvivorBuildRating;
 import responses.ResponseEntity;
 import response.ResponseStatus;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -36,9 +40,6 @@ public class BuildController {
 
     @EJB
     private KillerBuildService killerBuildService;
-
-    // TODO: заглушка
-    long userId = 1;
 
     @GET
     @Path("/survivor/random")
@@ -149,9 +150,11 @@ public class BuildController {
     @GET
     @Path("/survivor/rating")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getSurvivorBuildRating() {
+    public Response getSurvivorBuildRating(@Context SecurityContext securityContext) {
+        UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
         User user = new User();
-        user.setId(userId);
+        user.setId(userPrincipal.getUserId());
+
         List<UserSurvivorBuildRating> ratedBuilds = survivorBuildService.getRatedBuilds(user);
         return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", ratedBuilds)).build();
     }
@@ -159,12 +162,19 @@ public class BuildController {
     @PATCH
     @Path("/survivor/{id}/rating")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateSurvivorBuildRating(@PathParam("id") long buildId, @QueryParam("rating") int rating) {
+    public Response updateSurvivorBuildRating(
+            @PathParam("id") long buildId,
+            @QueryParam("rating") int rating,
+            @Context SecurityContext securityContext
+    ) {
         // TODO: попробовать через триггеры считать среднее, чтоб было за один запрос (пока некорректно работает)
         SurvivorBuild build = new SurvivorBuild();
         build.setId(buildId);
+
+        UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
         User user = new User();
-        user.setId(userId);
+        user.setId(userPrincipal.getUserId());
+
         survivorBuildService.updateSurvivorBuildRating(user, build, rating);
         return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", null)).build();
     }
@@ -172,9 +182,11 @@ public class BuildController {
     @GET
     @Path("/killer/rating")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getKillerBuildRating() {
+    public Response getKillerBuildRating(@Context SecurityContext securityContext) {
+        UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
         User user = new User();
-        user.setId(userId);
+        user.setId(userPrincipal.getUserId());
+
         List<UserKillerBuildRating> ratedBuilds = killerBuildService.getRatedBuilds(user);
         return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", ratedBuilds)).build();
     }
@@ -182,12 +194,19 @@ public class BuildController {
     @PATCH
     @Path("/killer/{id}/rating")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateKillerBuildRating(@PathParam("id") long buildId, @QueryParam("rating") int rating) {
+    public Response updateKillerBuildRating(
+            @PathParam("id") long buildId,
+            @QueryParam("rating") int rating,
+            @Context SecurityContext securityContext
+    ) {
         // TODO: попробовать через триггеры считать среднее, чтоб было за один запрос (пока некорректно работает)
         KillerBuild build = new KillerBuild();
         build.setId(buildId);
+
+        UserPrincipal userPrincipal = (UserPrincipal) securityContext.getUserPrincipal();
         User user = new User();
-        user.setId(userId);
+        user.setId(userPrincipal.getUserId());
+
         killerBuildService.updateKillerBuildRating(user, build, rating);
         return Response.ok(new ResponseEntity(ResponseStatus.SUCCESS, "", null)).build();
     }
