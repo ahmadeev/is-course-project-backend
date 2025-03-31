@@ -11,6 +11,7 @@ import jakarta.ejb.Startup;
 import jakarta.ejb.Singleton;
 import jakarta.json.*;
 import model.*;
+import model._utils.Role;
 import model.build.KillerBuild;
 import model.build.SurvivorBuild;
 import model.character.Killer;
@@ -18,6 +19,7 @@ import model.character.Survivor;
 import model.perk.KillerPerk;
 import model.perk.SurvivorPerk;
 import model._utils.User;
+import org.mindrot.jbcrypt.BCrypt;
 import utils.Utility;
 
 import java.io.FileInputStream;
@@ -26,6 +28,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 import static utils.UserGenerator.generateUser;
+import static utils.UserGenerator.hashPassword;
 
 @Startup
 @Singleton
@@ -195,11 +198,27 @@ public class Initializer {
 
     public void generateUsers(int count) {
         List<User> users = new ArrayList<>();
+
+        User dada = new User();
+        dada.setUsername("dada");
+        dada.setEmail("dada@gmail.com");
+        dada.setRoles(new HashSet<Role>(List.of(Role.ROLE_USER)));
+        dada.setPassword(hashPassword("dada"));
+        users.add(dada);
+
+        User admin = new User();
+        admin.setUsername("admin");
+        admin.setEmail("admin@gmail.com");
+        admin.setRoles(new HashSet<Role>(List.of(Role.ROLE_ADMIN, Role.ROLE_USER)));
+        admin.setPassword(hashPassword("admin"));
+        users.add(admin);
+
         for(int i = 0; i < count; i++) {
             User user = new User();
             // нужно ли инжектить сервис?
             users.add(generateUser());
         }
+
         userRepository.createAll(users);
     }
 
